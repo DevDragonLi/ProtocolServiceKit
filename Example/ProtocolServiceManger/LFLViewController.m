@@ -7,8 +7,10 @@
 //
 
 #import "LFLViewController.h"
-#import "LFLVipProtocol.h"
 #import <ProtocolServiceManger/ProtocolServiceManger.h>
+
+#import "LFLVipProtocol.h"
+#import "LFLPlayProtocol.h"
 
 @interface LFLViewController ()
 
@@ -18,14 +20,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+    
+    /*
+     VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
+     组件交互：从VIP业务来校验当前用户是否VIP，进而决定是否可以触发播放业务执行播放
+     */
     Class <LFLVipProtocol> vipService = ServiceClassWithProtocol(LFLVipProtocol);
-      if (vipService) {
-          NSString *userVipstatus = [vipService currentUserVipstatus];
-          NSLog(@"LFLViewController:%@",userVipstatus);
-      } else {
-          NSLog(@"Error:LFLVipProtocol notfound service Class");
-      }
+    if (vipService && [vipService isCurrentUserVipStatus]) {
+        Class <LFLPlayProtocol> playService = ServiceClassWithProtocol(LFLPlayProtocol);
+        [playService playMiniVideo];
+        
+    } else {
+        NSLog(@"Error:LFLVipProtocol notfound service Class");
+    }
 }
 
 
