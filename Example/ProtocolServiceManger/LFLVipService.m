@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LFLVipService : NSObject<LFLVipProtocol>
+@interface LFLVipService : NSObject//<LFLVipProtocol>
 
 @end
 
@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_END
 @implementation LFLVipService
 
 + (NSString *)currentUserVipstatus {
+    NSLog(@"Protocol Run Success！");
     return @"VIP10";
 }
 

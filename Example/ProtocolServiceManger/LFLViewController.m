@@ -19,8 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-    
-    Class <LFLVipProtocol> vipService = [[ProtocolServiceManger sharedManger] serviceClassWithProtocol:@protocol(LFLVipProtocol)];
+    Class <LFLVipProtocol> vipService = ServiceClassWithProtocol(LFLVipProtocol);
       if (vipService) {
           NSString *userVipstatus = [vipService currentUserVipstatus];
           NSLog(@"LFLViewController:%@",userVipstatus);

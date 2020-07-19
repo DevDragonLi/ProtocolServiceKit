@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define ServiceClassWithProtocol(aProtocol) [[ProtocolServiceManger sharedManger] serviceClassWithProtocol:@protocol(aProtocol)]
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProtocolServiceManger : NSObject

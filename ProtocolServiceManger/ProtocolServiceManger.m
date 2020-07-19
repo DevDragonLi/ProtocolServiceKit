@@ -21,7 +21,7 @@
 - (Class)serviceClassWithProtocol:(Protocol *)aProtocol {
     
     if (!aProtocol) {
-        NSAssert(aProtocol, @"ServiceIMPClass Not Fount");
+        NSAssert(!aProtocol, @"protocol not exist !");
         return nil;
     }
     NSString *serviceClassString = [NSStringFromProtocol(aProtocol) stringByReplacingOccurrencesOfString:@"Protocol" withString:@"Service"];
@@ -31,7 +31,7 @@
     if (implClass && [implClass conformsToProtocol:aProtocol]) {
         return implClass;
     } else {
-        NSAssert(aProtocol, @"Current Class Not implementation Method");
+        NSAssert(!implClass, @"Current Class Not implementation Method or Not exist Service Class");
         return nil;
     }
 }
