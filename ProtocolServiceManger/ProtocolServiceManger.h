@@ -2,12 +2,12 @@
 //  ProtocolServiceManger.h
 //  ProtocolServiceManger
 //
-//  Created by admin on 18/7/2020.
+//  Created by DevDragonli on 18/7/2020.
 //
 
 #import <Foundation/Foundation.h>
 
-#define ServiceClassWithProtocol(aProtocol) [[ProtocolServiceManger sharedManger] serviceClassWithProtocol:@protocol(aProtocol)]
+#define ServiceWithProtocol(aProtocol) [[ProtocolServiceManger sharedManger] serviceClassWithProtocol:@protocol(aProtocol)]
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedManger;
 
+/// efficient Transfer aProtocol to Service Class
+/// @param aProtocol  aProtocol
 - (Class)serviceClassWithProtocol:(Protocol *)aProtocol;
 
 @end

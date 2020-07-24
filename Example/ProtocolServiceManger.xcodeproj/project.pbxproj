@@ -31,7 +31,6 @@
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F595195388D20070C39A /* ProtocolServiceManger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProtocolServiceManger-Info.plist"; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6003F59B195388D20070C39A /* ProtocolServiceManger-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProtocolServiceManger-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* LFLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* LFLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFLAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* LFLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLViewController.h; sourceTree = "<group>"; };
@@ -133,7 +132,6 @@
 			children = (
 				6003F595195388D20070C39A /* ProtocolServiceManger-Info.plist */,
 				6003F599195388D20070C39A /* main.m */,
-				6003F59B195388D20070C39A /* ProtocolServiceManger-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -197,6 +195,11 @@
 				CLASSPREFIX = LFL;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = DevdragonLi;
+				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = FNCPC67LST;
+					};
+				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "ProtocolServiceManger" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -405,8 +408,9 @@
 			baseConfigurationReference = C05945134C188D0495A62A59 /* Pods-ProtocolServiceManger_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FNCPC67LST;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ProtocolServiceManger/ProtocolServiceManger-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "ProtocolServiceManger/ProtocolServiceManger-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
@@ -421,8 +425,9 @@
 			baseConfigurationReference = 5C05A3EC32CBE423C661E65C /* Pods-ProtocolServiceManger_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FNCPC67LST;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ProtocolServiceManger/ProtocolServiceManger-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "ProtocolServiceManger/ProtocolServiceManger-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
