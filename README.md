@@ -7,6 +7,8 @@
 
 > `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 
+>  OC/Swift 项目均可使用。
+
 ## 业界常用的组件通信方案
 
 ### URL Router
@@ -47,7 +49,7 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example/SwiftExample project, clone the repo, and run `pod install` from the Example directory first.
 
 - AccountBusiness <=> PlayBusiness 
 
@@ -77,7 +79,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-ProtocolServiceKitis available through [CocoaPods: ProtocolServiceKit](https://cocoapods.org/pods/ProtocolServiceKit). To install
+ProtocolServiceKit is available through [CocoaPods: ProtocolServiceKit](https://cocoapods.org/pods/ProtocolServiceKit). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
@@ -88,6 +90,28 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 pod 'ProtocolServiceKit',"~>1.1.0"
 
 ```
+
+## Swift示例
+
+```
+@objc public protocol SwiftTestProtocol {
+    
+   static func demo()
+}
+
+import Foundation
+
+class SwiftTestService:SwiftTestProtocol {
+    
+  static  public func demo() {
+      print("SwiftTestService")
+    }
+    
+}
+
+
+```
+
 
 ## 计划
 
