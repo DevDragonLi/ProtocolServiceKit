@@ -34,7 +34,7 @@
 ### ProtocolServiceKit 
 
 - 优点：同上`Protocol-Class` 方案，但移除了注册逻辑，解决占用内存问题。
--  缺点：需要遵从命名规范。
+-  缺点：需要遵从命名规范。（后续更新解决方案`doing`，参考最下方`计划`部分）
 	- 此缺点可通过维护Plist表做映射关系处理（二次改造）。
 
 
@@ -88,6 +88,14 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 pod 'ProtocolServiceKit',"~>1.1.0"
 
 ```
+
+## 计划
+
+- 缓存项目最常用到组件Protocol 和Service 引入白名单 机制
+	- 建议为10个以内，KIt内部维护一张表（均存String），用于直接返回ServiceClass
+	- 此方案为可选方案。
+		- 部分项目存在Service需要为单利场景，建议使用。
+- 引入`map`机制，可以不按照约定规则来提供Service Class，项目初始化提供map表机制，解决**强制**命名类规范问题，可自由自定义。
 
 ## Author
 
