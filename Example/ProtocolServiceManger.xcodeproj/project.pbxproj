@@ -22,8 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		378E714AE0D2DACF6C3F49A0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		417C10617EBC54236D1CE65E /* ProtocolServiceManger.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ProtocolServiceManger.podspec; path = ../ProtocolServiceManger.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5C05A3EC32CBE423C661E65C /* Pods-ProtocolServiceManger_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtocolServiceManger_Example.release.xcconfig"; path = "Target Support Files/Pods-ProtocolServiceManger_Example/Pods-ProtocolServiceManger_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* ProtocolServiceManger_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProtocolServiceManger_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -48,7 +46,6 @@
 		BBA7374AE9D8FCBF2B2A86BD /* Pods_ProtocolServiceManger_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProtocolServiceManger_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05945134C188D0495A62A59 /* Pods-ProtocolServiceManger_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtocolServiceManger_Example.debug.xcconfig"; path = "Target Support Files/Pods-ProtocolServiceManger_Example/Pods-ProtocolServiceManger_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C7D6C7404793A269D7142F41 /* Pods_ProtocolServiceManger_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProtocolServiceManger_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D79A584DDFEF54640EFA29E4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +77,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* Example for ProtocolServiceManger */,
+				6003F593195388D20070C39A /* Example for ProtocolServiceKit */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				4C1BDE9CC72EA4149DEDB77F /* Pods */,
@@ -109,7 +105,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* Example for ProtocolServiceManger */ = {
+		6003F593195388D20070C39A /* Example for ProtocolServiceKit */ = {
 			isa = PBXGroup;
 			children = (
 				8478D03E24C499120016C015 /* PlayBusiness */,
@@ -123,7 +119,7 @@
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
-			name = "Example for ProtocolServiceManger";
+			name = "Example for ProtocolServiceKit";
 			path = ProtocolServiceManger;
 			sourceTree = "<group>";
 		};
@@ -134,16 +130,6 @@
 				6003F599195388D20070C39A /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				417C10617EBC54236D1CE65E /* ProtocolServiceManger.podspec */,
-				378E714AE0D2DACF6C3F49A0 /* README.md */,
-				D79A584DDFEF54640EFA29E4 /* LICENSE */,
-			);
-			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 		8478D03A24C499090016C015 /* AccountBusiness */ = {
@@ -262,11 +248,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ProtocolServiceManger_Example/Pods-ProtocolServiceManger_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ProtocolServiceManger/ProtocolServiceManger.framework",
+				"${BUILT_PRODUCTS_DIR}/ProtocolServiceKit/ProtocolServiceKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtocolServiceManger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtocolServiceKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

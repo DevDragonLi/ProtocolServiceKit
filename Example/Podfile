@@ -3,6 +3,6 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'ProtocolServiceManger_Example' do
-  pod 'ProtocolServiceManger', :path => '../'
+  pod 'ProtocolServiceKit', :path => '../'
 
 end
