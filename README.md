@@ -37,6 +37,14 @@
 -  缺点：需要遵从命名规范。
 	- 此缺点可通过维护Plist表做映射关系处理（二次改造）。
 
+
+## 建议项目引入搭配方案
+
+- ProtocolServiceKit 负责组件中间件
+
+- [ZDModuleKit](https://github.com/DevDragonLi/ZDModuleKit)：负责组件生命周期管理
+	- 后续更新
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
