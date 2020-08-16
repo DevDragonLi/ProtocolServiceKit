@@ -69,14 +69,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-ProtocolServiceKitis available through [CocoaPods](https://cocoapods.org). To install
+ProtocolServiceKitis available through [CocoaPods: ProtocolServiceKit](https://cocoapods.org/pods/ProtocolServiceKit). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-
+deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
 
-// 建议使用版本
+// recommended
 pod 'ProtocolServiceKit',"~>1.1.0"
 
 ```
