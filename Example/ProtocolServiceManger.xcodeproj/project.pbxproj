@@ -16,6 +16,7 @@
 		6003F5A7195388D20070C39A /* LFLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* LFLViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		84355AD224ECD3E500B8568C /* LFLTestRuleIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = 84355AD124ECD3E500B8568C /* LFLTestRuleIMP.m */; };
 		8478D03D24C499090016C015 /* LFLVipService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478D03C24C499090016C015 /* LFLVipService.m */; };
 		8478D04224C499640016C015 /* LFLPlayService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478D04124C499640016C015 /* LFLPlayService.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
@@ -37,6 +38,9 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		68A4B015DF2164185E497A0B /* Pods-ProtocolServiceManger_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtocolServiceManger_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ProtocolServiceManger_Tests/Pods-ProtocolServiceManger_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84355ACF24ECD22C00B8568C /* LFLUnRuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLUnRuleProtocol.h; sourceTree = "<group>"; };
+		84355AD024ECD3E500B8568C /* LFLTestRuleIMP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLTestRuleIMP.h; sourceTree = "<group>"; };
+		84355AD124ECD3E500B8568C /* LFLTestRuleIMP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFLTestRuleIMP.m; sourceTree = "<group>"; };
 		8478D03B24C499090016C015 /* LFLVipProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLVipProtocol.h; sourceTree = "<group>"; };
 		8478D03C24C499090016C015 /* LFLVipService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLVipService.m; sourceTree = "<group>"; };
 		8478D03F24C499260016C015 /* LFLPlayProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLPlayProtocol.h; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		6003F593195388D20070C39A /* Example for ProtocolServiceKit */ = {
 			isa = PBXGroup;
 			children = (
+				84355ACE24ECD20400B8568C /* unRules */,
 				8478D03E24C499120016C015 /* PlayBusiness */,
 				8478D03A24C499090016C015 /* AccountBusiness */,
 				6003F5A5195388D20070C39A /* LFLViewController.h */,
@@ -130,6 +135,16 @@
 				6003F599195388D20070C39A /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84355ACE24ECD20400B8568C /* unRules */ = {
+			isa = PBXGroup;
+			children = (
+				84355ACF24ECD22C00B8568C /* LFLUnRuleProtocol.h */,
+				84355AD024ECD3E500B8568C /* LFLTestRuleIMP.h */,
+				84355AD124ECD3E500B8568C /* LFLTestRuleIMP.m */,
+			);
+			path = unRules;
 			sourceTree = "<group>";
 		};
 		8478D03A24C499090016C015 /* AccountBusiness */ = {
@@ -269,6 +284,7 @@
 				8478D03D24C499090016C015 /* LFLVipService.m in Sources */,
 				6003F59E195388D20070C39A /* LFLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LFLViewController.m in Sources */,
+				84355AD224ECD3E500B8568C /* LFLTestRuleIMP.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				8478D04224C499640016C015 /* LFLPlayService.m in Sources */,
 			);

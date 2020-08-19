@@ -19,6 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param aProtocol  aProtocol
 - (Class)serviceClassWithProtocol:(Protocol *)aProtocol;
 
+/// 一次性配置无规则的Protocol && ServiceClass
+/// @param mapDics  无规则类字典
+- (void)configProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
+/// 动态新增配置无规则的Protocol && ServiceClass
+/// @param mapDics  无规则类字典
+- (void)addProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
+
 @end
 
 NS_ASSUME_NONNULL_END

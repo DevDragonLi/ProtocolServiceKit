@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_END
 
 + (void)playMiniVideo {
     NSLog(@"LFLPlayProtocol IMP Method Success Run！");
-    NSLog(@"%s",__func__);
 }
 
 

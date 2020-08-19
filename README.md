@@ -53,10 +53,9 @@
 ### ProtocolServiceKit 
 
 - 优点：同上`Protocol-Class` 方案，但移除了注册逻辑，解决占用内存问题。
--  缺点：需要遵从命名规范。（后续更新解决方案`doing`，参考最下方`计划`部分）
-	- 此缺点可通过维护Plist表做映射关系处理（二次改造）。
-	- 部分缺点同上`Protocol-Class`
+	- 命名规则已经提供**Map**机制 ✅
 
+- 部分缺点同上`Protocol-Class`
 
 ## 建议项目引入搭配方案
 
@@ -94,6 +93,25 @@ To run the example/SwiftExample project, clone the repo, and run `pod install` f
 
 	- `XXX`Protocol
 
+- 命名规则Map方案
+
+>  参考Demo
+
+```
+
+   NSDictionary *mapDic = @{
+        @"LFLUnRuleProtocol":@"LFLTestRuleIMP"
+    };
+    [[ProtocolServiceManger sharedManger] configProtocolServiceMapsWithDic:mapDic];
+
+/// 一次性配置无规则的Protocol && ServiceClass
+/// @param mapDics  无规则类字典
+- (void)configProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
+/// 动态新增配置无规则的Protocol && ServiceClass
+/// @param mapDics  无规则类字典
+- (void)addProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
+
+``` 
 
 ## Installation
 
@@ -137,7 +155,7 @@ class SwiftTestService:SwiftTestProtocol {
 	- 建议为10个以内，KIt内部维护一张表（均存String），用于直接返回ServiceClass
 	- 此方案为可选方案。
 		- 部分项目存在Service需要为单利场景，建议使用。
-- 引入`map`机制，可以不按照约定规则来提供Service Class，项目初始化提供map表机制，解决**强制**命名类规范问题，可自由自定义。
+- 引入`map`机制，可以不按照约定规则来提供Service Class，项目初始化提供map表机制，解决**强制**命名类规范问题，可自由自定义。 1.2.0+ 版本 ✅
 
 ## Author
 

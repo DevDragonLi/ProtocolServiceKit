@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_END
 
 + (BOOL)isCurrentUserVipStatus {
     NSLog(@"LFLVipProtocol IMP Method Success Run！");
-    NSLog(@"%s",__func__);
     return YES;
 }
 

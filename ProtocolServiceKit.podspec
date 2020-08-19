@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'ProtocolServiceKit'
-  s.version          = '1.1.0'
-  s.summary          = '东半球最高效简洁的iOS组件中间件：ProtocolServiceKit'
+  s.version          = '1.2.0'
+  s.summary          = '最高效简洁的iOS组件中间件：ProtocolServiceKit'
 
   s.description      = <<-DESC
-  东半球最高效简洁的iOS组件中间件1.1.0.
+  最高效简洁的iOS组件中间件1.1.0.
                        DESC
 
   s.homepage         = 'https://github.com/DevdragonLi/ProtocolServiceKit'
