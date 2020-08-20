@@ -39,10 +39,17 @@
     Class <LFLVipProtocol> vipService = ServiceWithProtocol(LFLVipProtocol);
     
     if (vipService && [vipService isCurrentUserVipStatus]) {
-        [ServiceWithProtocol(LFLPlayProtocol) playMiniVideo];
+        [ServiceWithCachedProtocol(LFLPlayProtocol) playMiniVideo];
     } else {
         NSLog(@"Error:LFLVipProtocol notfound service Class");
     }
+    
+    if (vipService && [vipService isCurrentUserVipStatus]) {
+        [ServiceWithCachedProtocol(LFLPlayProtocol) playMiniVideo];
+    } else {
+        NSLog(@"Error:LFLVipProtocol notfound service Class");
+    }
+    
     
 }
 

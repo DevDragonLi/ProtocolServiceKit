@@ -7,6 +7,8 @@
 
 > `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 
+> 支持不规则命名，支持缓存。
+
 >  OC/Swift 项目均可使用。
 
 ## 业界常用的组件通信方案
@@ -55,6 +57,13 @@
 - 优点：同上`Protocol-Class` 方案，但移除了注册逻辑，解决占用内存问题。
 	- 命名规则已经提供**Map**机制 ✅
 
+- 缓存机制  ✅ 
+    - 建议项目最常用到组件Protocol 和Service 使用，Kit内部维护一张表（均存String），用于直接返回ServiceClass
+    - 1.3.0+
+
+- `map`机制，可以不按照约定规则来提供Service ✅ Class，项目初始化提供map表机制，解决**强制**命名类规范问题，可自由自定义。
+    - 1.2.0+ 版本 
+
 - 部分缺点同上`Protocol-Class`
 
 ## 建议项目引入搭配方案
@@ -71,17 +80,16 @@ To run the example/SwiftExample project, clone the repo, and run `pod install` f
 - AccountBusiness <=> PlayBusiness 
 
 ```
-
-  组件交互： VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
-
-    Class <LFLVipProtocol> vipService = ServiceClassWithProtocol(LFLVipProtocol);
-    if (vipService && [vipService isCurrentUserVipStatus]) {
-        Class <LFLPlayProtocol> playService = ServiceClassWithProtocol(LFLPlayProtocol);
-        [playService playMiniVideo];
-        
-    } else {
-        NSLog(@"Error:LFLVipProtocol notfound service Class");
-    }
+  // VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
+  // ServiceWithCachedProtocol 缓存使用
+  
+  Class <LFLVipProtocol> vipService = ServiceWithProtocol(LFLVipProtocol);
+  
+  if (vipService && [vipService isCurrentUserVipStatus]) {
+      [ServiceWithCachedProtocol(LFLPlayProtocol) playMiniVideo];
+  } else {
+      NSLog(@"Error:LFLVipProtocol notfound service Class");
+  }
 
 ```
 
@@ -147,15 +155,6 @@ class SwiftTestService:SwiftTestProtocol {
 
 
 ```
-
-
-## 计划
-
-- 缓存项目最常用到组件Protocol 和Service 引入白名单 机制
-	- 建议为10个以内，KIt内部维护一张表（均存String），用于直接返回ServiceClass
-	- 此方案为可选方案。
-		- 部分项目存在Service需要为单利场景，建议使用。
-- 引入`map`机制，可以不按照约定规则来提供Service Class，项目初始化提供map表机制，解决**强制**命名类规范问题，可自由自定义。 1.2.0+ 版本 ✅
 
 ## Author
 

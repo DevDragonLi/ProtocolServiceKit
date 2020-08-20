@@ -7,6 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
+/// Recommend
+#define ServiceWithCachedProtocol(cachedProtocol) [[ProtocolServiceManger sharedManger] serviceClassWithCachedProtocol:@protocol(cachedProtocol)]
+
 #define ServiceWithProtocol(aProtocol) [[ProtocolServiceManger sharedManger] serviceClassWithProtocol:@protocol(aProtocol)]
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,8 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedManger;
 
 /// efficient Transfer aProtocol to Service Class
+/// NOTE：查找优先级：按照命名规则，Map规则（serviceClass）
 /// @param aProtocol  aProtocol
 - (Class)serviceClassWithProtocol:(Protocol *)aProtocol;
+
+/// efficient Transfer aProtocol to Service Class
+/// NOTE：查找优先级：缓存，按照命名规则，Map规则（serviceClass）
+/// @param cachedProtocol  aProtocol
+- (Class)serviceClassWithCachedProtocol:(Protocol *)cachedProtocol;
 
 /// 一次性配置无规则的Protocol && ServiceClass
 /// @param mapDics  无规则类字典
