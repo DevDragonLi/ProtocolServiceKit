@@ -55,13 +55,13 @@
 ### ProtocolServiceKit 
 
 - 优点：同上`Protocol-Class` 方案，但移除了注册逻辑，解决占用内存问题。
-	- 命名规则已经提供**Map**机制 ✅
+	- 命名规则已经提供**Map**机制 
 
 - 缓存机制  ✅ 
     - 建议项目最常用到组件Protocol 和Service 使用，Kit内部维护一张表（均存String），用于直接返回ServiceClass
     - 1.3.0+
 
-- `map`机制，可以不按照约定规则来提供Service ✅ Class，项目初始化提供map表机制，解决**强制**命名类规范问题，可自由自定义。
+- `map`机制，可以不按照约定规则来提供Service  Class，项目初始化提供map表机制，解决**强制**命名类规范问题，可自由自定义。 ✅
     - 1.2.0+ 版本 
 
 - 部分缺点同上`Protocol-Class`
@@ -127,11 +127,12 @@ ProtocolServiceKit is available through [CocoaPods: ProtocolServiceKit](https://
 it, simply add the following line to your Podfile:
 
 ```ruby
-deprecate
-pod 'ProtocolServiceManger',"~>1.0.0"
 
 // recommended
-pod 'ProtocolServiceKit',"~>1.1.0"
+pod 'ProtocolServiceKit',"~>1.3.0"
+
+deprecate
+pod 'ProtocolServiceManger',"~>1.0.0"
 
 ```
 
