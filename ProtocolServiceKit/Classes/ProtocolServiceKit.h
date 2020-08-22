@@ -10,13 +10,12 @@
 
 #if __has_include(<ProtocolServiceKit/ProtocolServiceKit.h>)
 
-#import <ProtocolServiceKit/ProtocolServiceManger.h>
+#import <ProtocolServiceKit/ProService.h>
 
 #else
 
-#import "ProtocolServiceManger.h"
+#import "ProService.h"
 
 #endif
-
 
 #endif /* ProtocolServiceKit_h */

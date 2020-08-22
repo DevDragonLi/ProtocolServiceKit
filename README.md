@@ -5,11 +5,11 @@
 [![License](https://img.shields.io/cocoapods/l/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 [![Platform](https://img.shields.io/cocoapods/p/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 
-> `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
+>`东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 
-> 支持不规则命名，支持缓存。
+> 支持不规则命名，缓存机制。
 
->  OC/Swift 项目均可使用。
+>  OC/Swift 项目均可使用此Kit
 
 ## 业界常用的组件通信方案
 
@@ -58,24 +58,39 @@
 	- 命名规则已经提供**Map**机制 
 
 - 缓存机制  ✅ 
-    - 建议项目最常用到组件Protocol 和Service 使用，Kit内部维护一张表（均存String），用于直接返回ServiceClass
-    - 1.3.0+
+    - 建议项目最常用到组件Protocol 和Service 使用，Kit内部维护一张表，用于直接返回ServiceClass
+    - 1.3.0 + Support 
 
 - `map`机制，可以不按照约定规则来提供Service  Class，项目初始化提供map表机制，解决**强制**命名类规范问题，可自由自定义。 ✅
-    - 1.2.0+ 版本 
+    - 1.2.0 + Support 
 
 - 部分缺点同上`Protocol-Class`
 
-## 建议项目引入搭配方案
-
-- ProtocolServiceKit 负责组件中间件
-
-- [ZDModuleKit](https://github.com/DevDragonLi/ZDModuleKit)：负责组件生命周期管理
-	- 后续更新
 
 ## Example
 
 To run the example/SwiftExample project, clone the repo, and run `pod install` from the Example directory first.
+
+- API 
+
+```
+/// Efficient  Protocol <=> Service Class
+/// Find Service Class Priority：1.NameRules   2.Map Rules
+/// @param aProtocol  aProtocol
+- (Class)serviceClassWithProtocol:(Protocol *)aProtocol;
+
+/// efficient Transfer aProtocol to Service Class
+/// NOTE：only Recommend user in Core Module ！
+/// Find Service Class Priority：1. Cache Service Class 2.NameRules   3.Map Rules
+/// @param cachedProtocol  aProtocol
+- (Class)serviceClassWithCachedProtocol:(Protocol *)cachedProtocol;
+
+/// config Protocol && ServiceClass MapDics
+/// @param mapDics   Map < Key:protocolStringKey Value:serviceClassString >
+- (void)configProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
+
+```
+
 
 - AccountBusiness <=> PlayBusiness 
 
@@ -101,23 +116,15 @@ To run the example/SwiftExample project, clone the repo, and run `pod install` f
 
 	- `XXX`Protocol
 
-- 命名规则Map方案
-
->  参考Demo
+- 命名规则Map解决方案
 
 ```
 
-   NSDictionary *mapDic = @{
-        @"LFLUnRuleProtocol":@"LFLTestRuleIMP"
-    };
-    [[ProtocolServiceManger sharedManger] configProtocolServiceMapsWithDic:mapDic];
+NSDictionary *mapDic = @{
+    @"LFLUnRuleProtocol":@"LFLTestRuleIMP"
+};
+[[ProtocolServiceManger sharedManger]configProtocolServiceMapsWithDic:mapDic];
 
-/// 一次性配置无规则的Protocol && ServiceClass
-/// @param mapDics  无规则类字典
-- (void)configProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
-/// 动态新增配置无规则的Protocol && ServiceClass
-/// @param mapDics  无规则类字典
-- (void)addProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
 
 ``` 
 
@@ -129,7 +136,7 @@ it, simply add the following line to your Podfile:
 ```ruby
 
 // recommended
-pod 'ProtocolServiceKit',"~>1.3.0"
+pod 'ProtocolServiceKit',"~>1.4.0"
 
 deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"

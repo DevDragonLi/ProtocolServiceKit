@@ -17,13 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    NSDictionary *mapDic = @{
-//        NSStringFromProtocol(@protocol(LFLUnRuleProtocol)):[LFLTestRuleIMP class]
-//    };
+    //    NSDictionary *mapDic = @{
+    //        NSStringFromProtocol(@protocol(LFLUnRuleProtocol)):[LFLTestRuleIMP class]
+    //    };
     NSDictionary *mapDic = @{
         @"LFLUnRuleProtocol":@"LFLTestRuleIMP"
     };
-    [[ProtocolServiceManger sharedManger] configProtocolServiceMapsWithDic:mapDic];
+    // 项目Map较多，可plist文件维护！
+    [[ProService sharedManger] configProtocolServiceMapsWithDic:mapDic];
+    
     return YES;
 }
 

@@ -21,18 +21,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self normalExample];
+    //    [self normalExample];
     [self unRuleExample];
 }
-/// 非规则配置，参考LFLAppDelegate.m 配置细节
+/// Map  =》 LFLAppDelegate.m
 - (void)unRuleExample {
     Class <LFLUnRuleProtocol> ruleService = ServiceWithProtocol(LFLUnRuleProtocol);
     // 此处Class 实际为LFLTestRuleIMP
     [ruleService unRuleMethod];
-    
 }
 
-/// 常规案例
+/// Normal
 - (void)normalExample {
     
     // VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
@@ -49,7 +48,6 @@
     } else {
         NSLog(@"Error:LFLVipProtocol notfound service Class");
     }
-    
     
 }
 
