@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ProtocolServiceKit'
-  s.version          = '1.4.0'
+  s.version          = '1.4.1'
   s.summary          = '最高效简洁的iOS组件中间件：ProtocolServiceKit'
 
   s.description      = <<-DESC
