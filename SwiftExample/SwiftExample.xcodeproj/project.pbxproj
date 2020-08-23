@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		316717FDB138881554807F9F /* Pods_SwiftExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B41CCB7448BE4B254E54459 /* Pods_SwiftExample.framework */; };
+		8491DF5F24F1EE660046FB95 /* SwiftTestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491DF5D24F1EE660046FB95 /* SwiftTestProtocol.swift */; };
+		8491DF6024F1EE660046FB95 /* SwiftTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491DF5E24F1EE660046FB95 /* SwiftTestService.swift */; };
 		84E9DC7424E98ED500887623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9DC7324E98ED500887623 /* AppDelegate.swift */; };
 		84E9DC7824E98ED500887623 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9DC7724E98ED500887623 /* ViewController.swift */; };
 		84E9DC7B24E98ED500887623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E9DC7924E98ED500887623 /* Main.storyboard */; };
 		84E9DC7D24E98ED600887623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E9DC7C24E98ED600887623 /* Assets.xcassets */; };
 		84E9DC8024E98ED600887623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E9DC7E24E98ED600887623 /* LaunchScreen.storyboard */; };
-		84ED71FA24E99057004FFC60 /* SwiftTestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED71F924E99057004FFC60 /* SwiftTestProtocol.swift */; };
-		84ED71FC24E990A6004FFC60 /* SwiftTestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED71FB24E990A6004FFC60 /* SwiftTestService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		48007EA33EF5AFBD9AA720E4 /* Pods-SwiftExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftExample.release.xcconfig"; path = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.release.xcconfig"; sourceTree = "<group>"; };
 		4A5D39F3BDFF08EF437AB72D /* Pods-SwiftExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftExample.debug.xcconfig"; path = "Target Support Files/Pods-SwiftExample/Pods-SwiftExample.debug.xcconfig"; sourceTree = "<group>"; };
 		7B41CCB7448BE4B254E54459 /* Pods_SwiftExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8491DF5D24F1EE660046FB95 /* SwiftTestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTestProtocol.swift; sourceTree = "<group>"; };
+		8491DF5E24F1EE660046FB95 /* SwiftTestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTestService.swift; sourceTree = "<group>"; };
 		84E9DC7024E98ED500887623 /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E9DC7324E98ED500887623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E9DC7724E98ED500887623 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,8 +30,6 @@
 		84E9DC7C24E98ED600887623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84E9DC7F24E98ED600887623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E9DC8124E98ED600887623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84ED71F924E99057004FFC60 /* SwiftTestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTestProtocol.swift; sourceTree = "<group>"; };
-		84ED71FB24E990A6004FFC60 /* SwiftTestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTestService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +61,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8491DF5C24F1EE660046FB95 /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+				8491DF5D24F1EE660046FB95 /* SwiftTestProtocol.swift */,
+				8491DF5E24F1EE660046FB95 /* SwiftTestService.swift */,
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
 		84E9DC6724E98ED500887623 = {
 			isa = PBXGroup;
 			children = (
@@ -83,9 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				84E9DC7324E98ED500887623 /* AppDelegate.swift */,
+				8491DF5C24F1EE660046FB95 /* Normal */,
 				84E9DC7724E98ED500887623 /* ViewController.swift */,
-				84ED71F924E99057004FFC60 /* SwiftTestProtocol.swift */,
-				84ED71FB24E990A6004FFC60 /* SwiftTestService.swift */,
 				84E9DC7924E98ED500887623 /* Main.storyboard */,
 				84E9DC7C24E98ED600887623 /* Assets.xcassets */,
 				84E9DC7E24E98ED600887623 /* LaunchScreen.storyboard */,
@@ -209,10 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84ED71FA24E99057004FFC60 /* SwiftTestProtocol.swift in Sources */,
+				8491DF5F24F1EE660046FB95 /* SwiftTestProtocol.swift in Sources */,
 				84E9DC7824E98ED500887623 /* ViewController.swift in Sources */,
 				84E9DC7424E98ED500887623 /* AppDelegate.swift in Sources */,
-				84ED71FC24E990A6004FFC60 /* SwiftTestService.swift in Sources */,
+				8491DF6024F1EE660046FB95 /* SwiftTestService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

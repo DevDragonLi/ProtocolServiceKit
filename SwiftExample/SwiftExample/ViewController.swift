@@ -11,17 +11,20 @@ import UIKit
 import ProtocolServiceKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
-        
-        let testService: AnyClass = ProtocolServiceKit.ProtocolServiceManger.shared().serviceClass(with: SwiftTestProtocol.self)
-        
-        testService.demo()
-        
+        normalDemo()
     }
-
-
+    
+    func normalDemo() {
+        
+        let testSerivce : AnyClass = ProService.sharedManger().serviceClass(with:SwiftTestProtocol.self)
+    
+        testSerivce.demo()
+    
+    }
+    
 }
 

@@ -145,7 +145,8 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 
 ## Swift示例
 
-```
+```objc
+
 @objc public protocol SwiftTestProtocol {
     
    static func demo()
@@ -161,6 +162,9 @@ class SwiftTestService:SwiftTestProtocol {
     
 }
 
+let testSerivce : AnyClass = ProService.sharedManger().serviceClass(with:SwiftTestProtocol.self)
+
+testSerivce.demo()
 
 ```
 
