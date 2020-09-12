@@ -19,6 +19,7 @@
 		84355AD224ECD3E500B8568C /* LFLTestRuleIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = 84355AD124ECD3E500B8568C /* LFLTestRuleIMP.m */; };
 		8478D03D24C499090016C015 /* LFLVipService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478D03C24C499090016C015 /* LFLVipService.m */; };
 		8478D04224C499640016C015 /* LFLPlayService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478D04124C499640016C015 /* LFLPlayService.m */; };
+		84D247D5250C9E0500A3B046 /* LFLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D247D4250C9E0500A3B046 /* LFLAccountTool.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,8 @@
 		8478D03C24C499090016C015 /* LFLVipService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLVipService.m; sourceTree = "<group>"; };
 		8478D03F24C499260016C015 /* LFLPlayProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLPlayProtocol.h; sourceTree = "<group>"; };
 		8478D04124C499640016C015 /* LFLPlayService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFLPlayService.m; sourceTree = "<group>"; };
+		84D247D3250C9E0500A3B046 /* LFLAccountTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LFLAccountTool.h; sourceTree = "<group>"; };
+		84D247D4250C9E0500A3B046 /* LFLAccountTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFLAccountTool.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		969E6221237BC1DF96D5B4A3 /* Pods-ProtocolServiceManger_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProtocolServiceManger_Tests.release.xcconfig"; path = "Target Support Files/Pods-ProtocolServiceManger_Tests/Pods-ProtocolServiceManger_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BBA7374AE9D8FCBF2B2A86BD /* Pods_ProtocolServiceManger_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProtocolServiceManger_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +155,8 @@
 			children = (
 				8478D03B24C499090016C015 /* LFLVipProtocol.h */,
 				8478D03C24C499090016C015 /* LFLVipService.m */,
+				84D247D3250C9E0500A3B046 /* LFLAccountTool.h */,
+				84D247D4250C9E0500A3B046 /* LFLAccountTool.m */,
 			);
 			path = AccountBusiness;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D247D5250C9E0500A3B046 /* LFLAccountTool.m in Sources */,
 				8478D03D24C499090016C015 /* LFLVipService.m in Sources */,
 				6003F59E195388D20070C39A /* LFLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LFLViewController.m in Sources */,

@@ -20,12 +20,10 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 [![License](https://img.shields.io/cocoapods/l/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 [![Platform](https://img.shields.io/cocoapods/p/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 
-> `东半球`最高效的 Protocol\<=\>Service
-> 中间件，解决中间件的占用内存问题。
+> `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 
-> 支持不规则命名，缓存机制。
-
-> OC/Swift 项目均可使用此Kit
+> 支持不规则命名/缓存机制
+>  OC/Swift项目均可使用此Kit
 
 ## 业界常用的组件通信方案
 
@@ -99,7 +97,7 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 
 ``` ruby
 // recommended
-pod 'ProtocolServiceKit',"~>1.4.1"
+pod 'ProtocolServiceKit',"~>1.4.2"
 
 deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
@@ -112,37 +110,31 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 
 ####  Main API
 
-```
-    /// Efficient  Protocol <=> Service Class
-    /// Find Service Class Priority：1.NameRules   2.Map Rules
-    /// @param aProtocol  aProtocol
-    - (Class)serviceClassWithProtocol:(Protocol *)aProtocol;
+```objc
 
-    /// efficient Transfer aProtocol to Service Class
-    /// NOTE：only Recommend user in Core Module ！
-    /// Find Service Class Priority：1. Cache Service Class 2.NameRules   3.Map Rules
-    /// @param cachedProtocol  aProtocol
-    - (Class)serviceClassWithCachedProtocol:(Protocol *)cachedProtocol;
+- (Class)serviceClassWithProtocol:(Protocol *)aProtocol;
 
-    /// config Protocol && ServiceClass MapDics
-    /// @param mapDics   Map < Key:protocolStringKey Value:serviceClassString >
-    - (void)configProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
+- (Class)serviceClassWithCachedProtocol:(Protocol *)cachedProtocol;
+
+- (void)configProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
 
 ```
 
 -  AccountBusiness <=> PlayBusiness Example 
 
-```
-      // VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
-      // ServiceWithCachedProtocol 缓存使用
-      
-      Class <LFLVipProtocol> vipService = ServiceWithProtocol(LFLVipProtocol);
-      
-      if (vipService && [vipService isCurrentUserVipStatus]) {
-          [ServiceWithCachedProtocol(LFLPlayProtocol) playMiniVideo];
-      } else {
-          NSLog(@"Error:LFLVipProtocol notfound service Class");
-      }
+```objc
+
+// VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
+// ServiceWithCachedProtocol 缓存使用
+  
+Class <LFLVipProtocol> vipService = ServiceWithProtocol(LFLVipProtocol);
+  
+if (vipService && [vipService isCurrentUserVipStatus]) {
+  [ServiceWithCachedProtocol(LFLPlayProtocol) playMiniVideo];
+} else {
+  NSLog(@"Error:LFLVipProtocol notfound service Class");
+}
+
 ```
 
 -  对外业务能力如果未实现，运行期调用会触发断言处，便于发现问题。 ✅
@@ -155,18 +147,18 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 
 -  项目已存在或者想自由风格命名：**Map解决方案**
 
-```
+```objc
 
-    NSDictionary *mapDic = @{
-        @"LFLUnRuleProtocol":@"LFLTestRuleIMP"
-    };
-    [[ProtocolServiceManger sharedManger]configProtocolServiceMapsWithDic:mapDic];
+NSDictionary *mapDic = @{
+    @"LFLUnRuleProtocol":@"LFLTestRuleIMP"
+};
+[[ProtocolServiceManger sharedManger]configProtocolServiceMapsWithDic:mapDic];
 
 ```
 
 ## Swift Example  
 
-``` Swift 
+```Swift 
 
 let testSerivce : AnyClass = ProService.sharedManger().serviceClass(with:SwiftTestProtocol.self)
 
@@ -186,7 +178,6 @@ class SwiftTestService:SwiftTestProtocol {
     }
     
 }
-
 
 
 ```
