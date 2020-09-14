@@ -38,7 +38,7 @@
     
     // VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
     Class <LFLVipProtocol> vipService = ServiceWithProtocol(LFLVipProtocol);
-    
+    // 不直接使用对应账户类
     // BOOL isVip = [LFLAccountTool isUserVipStatus];
     
     BOOL isVip = [vipService isCurrentUserVipStatus];

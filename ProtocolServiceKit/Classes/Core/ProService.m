@@ -30,8 +30,6 @@ static NSString *const ProServiceClassStringID = @"Service";
     static ProService *sharedManger;
     dispatch_once(&once, ^{
         sharedManger = [[[self class] alloc] init];
-        sharedManger.mapDics = [NSMutableDictionary dictionary];
-        sharedManger.cacheDics = [NSMutableDictionary dictionary];
     });
     return sharedManger;
 }
@@ -40,7 +38,7 @@ static NSString *const ProServiceClassStringID = @"Service";
     return [self serviceClassWithProtocol:aProtocol isCache:NO];
 }
 
-#pragma mark - cache
+#pragma mark - cache serviceClass Method
 
 - (Class)serviceClassWithCachedProtocol:(Protocol *)cachedProtocol {
     // frist try cacheServiceClass
@@ -111,11 +109,27 @@ static NSString *const ProServiceClassStringID = @"Service";
     }
 }
 
+#pragma mark lazy propertys
+
 - (dispatch_queue_t)asyncProServiceKitOperationQueue {
     if (_asyncProServiceKitOperationQueue == nil) {
         _asyncProServiceKitOperationQueue = dispatch_queue_create("com.ProServiceKit.operationQueue", DISPATCH_QUEUE_SERIAL);
     }
     return _asyncProServiceKitOperationQueue;
+}
+
+- (NSMutableDictionary<NSString *,Class> *)cacheDics {
+    if (!_cacheDics) {
+        _cacheDics = [NSMutableDictionary dictionary];
+    }
+    return _cacheDics;
+}
+
+- (NSMutableDictionary<NSString *,NSString *> *)mapDics {
+    if (!_mapDics) {
+        _mapDics = [NSMutableDictionary dictionary];
+    }
+    return _mapDics;
 }
 
 @end

@@ -95,9 +95,9 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 
 > ProtocolServiceKit is available through [CocoaPods:ProtocolServiceKit](https://cocoapods.org/pods/ProtocolServiceKit). To install it, simply add the following line to your Podfile:
 
-``` ruby
+```ruby
 // recommended
-pod 'ProtocolServiceKit',"~>1.4.2"
+pod 'ProtocolServiceKit',"~>1.4.3"
 
 deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
@@ -126,13 +126,16 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 
 // VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
 // ServiceWithCachedProtocol 缓存使用
-  
 Class <LFLVipProtocol> vipService = ServiceWithProtocol(LFLVipProtocol);
-  
-if (vipService && [vipService isCurrentUserVipStatus]) {
-  [ServiceWithCachedProtocol(LFLPlayProtocol) playMiniVideo];
+// 不直接使用对应账户类
+// BOOL isVip = [LFLAccountTool isUserVipStatus];
+
+BOOL isVip = [vipService isCurrentUserVipStatus];
+
+if (vipService && isVip) {
+   [ServiceWithCachedProtocol(LFLPlayProtocol) playMiniVideo];
 } else {
-  NSLog(@"Error:LFLVipProtocol notfound service Class");
+   NSLog(@"Error:LFLVipProtocol notfound service Class");
 }
 
 ```
