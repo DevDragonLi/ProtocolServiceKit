@@ -97,7 +97,7 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 
 ```ruby
 // recommended
-pod 'ProtocolServiceKit',"~>1.4.3"
+pod 'ProtocolServiceKit',"~>1.4.4"
 
 deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
@@ -163,25 +163,33 @@ NSDictionary *mapDic = @{
 
 ```Swift 
 
-let testSerivce : AnyClass = ProService.sharedManger().serviceClass(with:SwiftTestProtocol.self)
+File:SwiftNormalProtocol.swift
 
-testSerivce.demo()
-
-@objc public protocol SwiftTestProtocol {
+@objc public protocol SwiftNormalProtocol {
     
-   static func demo()
+   static func normalFunction()
 }
+
 
 import Foundation
 
-class SwiftTestService:SwiftTestProtocol {
+class SwiftNormalService:SwiftNormalProtocol {
     
-  static  public func demo() {
-      print("SwiftTestService")
+  static  public func normalFunction() {
+      print("SwiftNormalService")
     }
     
 }
 
+// user example 
+
+func normalDemo() {
+    
+    let normalService : AnyClass = ProService.sharedManger().serviceClass(with:SwiftNormalProtocol.self)
+    
+    // can tip functions
+    normalService.normalFunction()
+}
 
 ```
 

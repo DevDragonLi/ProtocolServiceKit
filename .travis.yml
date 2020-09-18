@@ -1,5 +1,5 @@
-language: objective-c
-osx_image: xcode11.6
+language: swift
+osx_image: xcode12.0
 
 env:
   global:
@@ -24,14 +24,20 @@ before_install:
   - xcodebuild -showsdks
 
 script:
+  
   - set -o pipefail
 
   - echo Check if the library described by the podspec can be built
   - pod lib lint --allow-warnings
 
-  - echo Build example
-  - pod install --project-directory=Example
-  - xcodebuild build -workspace Example/ProtocolServiceManger.xcworkspace -scheme ProtocolServiceManger_Example -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug | xcpretty -c
+  - echo Build SwiftExample
+  - pod install --project-directory=SwiftExample
+  - xcodebuild build -workspace SwiftExample/SwiftExample.xcworkspace -scheme ProtocolServiceManger_Example -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug | xcpretty -c
+
+  - echo Build OCExample
+
+  - pod install --project-directory=OCExample
+  - xcodebuild build -workspace OCExample/ProtocolServiceManger.xcworkspace -scheme ProtocolServiceManger_Example -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug | xcpretty -c
 
   - echo Clean DerivedData
   - rm -rf ~/Library/Developer/Xcode/DerivedData/
@@ -40,4 +46,3 @@ script:
   #- echo Run the tests
   #- xcodebuild test -workspace Example/ProtocolServiceManger.xcworkspace -scheme 'ProtocolServiceManger_Tests' -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug | xcpretty -c
   #- mv ~/Library/Developer/Xcode/DerivedData/ ./DerivedData/iOS
-

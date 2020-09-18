@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  SwiftExample
 //
-//  Created by admin on 16/8/2020.
-//  Copyright © 2020 zd. All rights reserved.
+//  Created by Devdragonli on 16/8/2020.
+//  Copyright © 2020 Devdragonli. All rights reserved.
 //
 
 import UIKit
@@ -14,16 +14,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .gray
         normalDemo()
     }
     
     func normalDemo() {
-        
-        let testSerivce : AnyClass = ProService.sharedManger().serviceClass(with:SwiftTestProtocol.self)
-    
-        testSerivce.demo()
-    
+        let normalService : AnyClass = ProService.sharedManger().serviceClass(with:SwiftNormalProtocol.self)
+        // can tip functions
+        normalService.normalFunction()
     }
     
 }
