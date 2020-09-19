@@ -32,7 +32,7 @@ script:
 
   - echo Build SwiftExample
   - pod install --project-directory=SwiftExample
-  - xcodebuild build -workspace SwiftExample/SwiftExample.xcworkspace -scheme ProtocolServiceManger_Example -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug | xcpretty -c
+  - xcodebuild build -workspace SwiftExample/SwiftExample.xcworkspace -scheme SwiftExample -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug | xcpretty -c
 
   - echo Build OCExample
 

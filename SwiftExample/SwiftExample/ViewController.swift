@@ -15,13 +15,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
-        normalDemo()
+        ProtocolServiceDemo()
     }
     
-    func normalDemo() {
+    func ProtocolServiceDemo() {
+        
         let normalService : AnyClass = ProService.sharedManger().serviceClass(with:SwiftNormalProtocol.self)
         // can tip functions
         normalService.normalFunction()
+        
+        let mapService : AnyClass = ProService.sharedManger().serviceClass(with: MapExampleProtocol.self)
+        mapService.MapExampleFunction()
+        
     }
     
 }

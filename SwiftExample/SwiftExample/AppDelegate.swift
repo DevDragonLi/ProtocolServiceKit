@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProtocolServiceKit.ProService
 
 @UIApplicationMain
 
@@ -20,5 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         return true
     }
+    
+    func configMapProtocolServices() {
+//        Map < Key:protocolStringKey Value:serviceClassString >
+        ProService.sharedManger().configProtocolServiceMaps(withDic: ["MapExampleProtocol":"MapUnRuleClass"])
+    }
+    
 }
 
