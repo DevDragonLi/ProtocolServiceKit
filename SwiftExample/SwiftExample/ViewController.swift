@@ -19,13 +19,21 @@ class ViewController: UIViewController {
     }
     
     func ProtocolServiceDemo() {
-        
+        // 1. use
         let normalService : AnyClass = ProService.sharedManger().serviceClass(with:SwiftNormalProtocol.self)
-        // can tip functions
+        // 2. can tip functions （AnyClass）
         normalService.normalFunction()
         
         let mapService : AnyClass = ProService.sharedManger().serviceClass(with: MapExampleProtocol.self)
         mapService.MapExampleFunction()
+        
+        // 3. project most use
+        let normalCacheService : AnyClass = ProService.sharedManger().serviceClass(withCachedProtocol: SwiftNormalProtocol.self)
+        normalCacheService.normalFunction()
+        
+        // 3.1 speed return normalCacheServiceDemo instance
+        let normalCacheServiceDemo : AnyClass = ProService.sharedManger().serviceClass(withCachedProtocol: SwiftNormalProtocol.self)
+        normalCacheServiceDemo.normalFunction()
         
     }
     

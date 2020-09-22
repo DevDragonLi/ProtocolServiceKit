@@ -32,12 +32,11 @@ script:
 
   - echo Build SwiftExample
   - pod install --project-directory=SwiftExample
-  - xcodebuild build -workspace SwiftExample/SwiftExample.xcworkspace -scheme SwiftExample -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug | xcpretty -c
+  - xcodebuild build -workspace SwiftExample/SwiftExample.xcworkspace -scheme SwiftExample -destination 'platform=iOS Simulator,name=iPhone X' -configuration Debug | xcpretty -c
 
-  - echo Build OCExample
-
-  - pod install --project-directory=OCExample
-  - xcodebuild build -workspace OCExample/ProtocolServiceManger.xcworkspace -scheme ProtocolServiceManger_Example -destination 'platform=iOS Simulator,name=iPhone 11 Pro' -configuration Debug | xcpretty -c
+  # - echo Build OCExample
+  # - pod install --project-directory=OCExample
+  # - xcodebuild build -workspace OCExample/ProtocolServiceManger.xcworkspace -scheme ProtocolServiceManger_Example -destination 'platform=iOS Simulator,name=iPhone X' -configuration Debug | xcpretty -c
 
   - echo Clean DerivedData
   - rm -rf ~/Library/Developer/Xcode/DerivedData/

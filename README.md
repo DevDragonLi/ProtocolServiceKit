@@ -20,10 +20,11 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 [![License](https://img.shields.io/cocoapods/l/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 [![Platform](https://img.shields.io/cocoapods/p/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 
-> `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
+>`东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 
-> 支持不规则命名/缓存机制
->  OC/Swift项目均可使用此Kit
+>支持不规则命名/缓存机制
+
+>OC/Swift项目均可使用此Kit
 
 ## 业界常用的组件通信方案
 
@@ -80,35 +81,36 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 
 ## ProtocolServiceKit
 
--   优点：同上`Protocol-Class`
-    方案，但移除了注册逻辑，解决占用内存问题。
--   缓存机制 ✅
-    -   建议项目最常用到组件Protocol 和Service
+> Protocol-Class方案
+
+-  优点：同上`Protocol-Class`方案，但移除了注册逻辑，解决占用内存问题。
+-  缓存机制 ✅
+    -  建议项目最常用到组件Protocol 和Service
         使用，Kit内部维护一张表，用于直接返回ServiceClass
-    -   1.3.0 + Support
--   **Map**机制，可以不按照约定规则来提供ServiceClass，项目初始化/需要处提供map表机制，解决**强制**命名类规范问题，可自由自定义。
+    -  1.3.0 + Support
+- **Map**机制，可以不按照约定规则来提供ServiceClass，项目初始化/**需要处**提供map表机制，解决**强制**命名类规范问题，可自由自定义IMPClass。
     ✅
-    -   1.2.0 + Support
--   部分缺点同上`Protocol-Class`
+    - 1.2.0 + Support
+-  部分缺点同上`Protocol-Class`
 
 ## Installation
 
-> ProtocolServiceKit is available through [CocoaPods:ProtocolServiceKit](https://cocoapods.org/pods/ProtocolServiceKit). To install it, simply add the following line to your Podfile:
+> ProtocolServiceKit is available through [ProtocolServiceKit](https://cocoapods.org/pods/ProtocolServiceKit). To install it, simply add the following line to your Podfile:
 
 ```ruby
 // recommended
-pod 'ProtocolServiceKit',"~>1.4.4"
+pod 'ProtocolServiceKit',"~>1.5.0"
 
 deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
 
 ```
 
-## Example
+## ObjC Example
 
 > To run the example/SwiftExample project, clone the repo, and run `pod install` from the Example directory first.
 
-####  Main API
+### Main API
 
 ```objc
 
@@ -196,7 +198,7 @@ func normalDemo() {
 Author
 ------
 
-DevdragonLi, dragonLi_52171\@163.com
+DevdragonLi, dragonLi_52171@163.com
 
 License
 -------
