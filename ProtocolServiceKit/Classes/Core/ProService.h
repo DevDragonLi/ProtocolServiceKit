@@ -7,14 +7,18 @@
 
 #import <Foundation/Foundation.h>
 
-/// Recommend
+/// Recommend: cache
 #define ServiceWithCachedProtocol(cachedProtocol) [[ProService sharedManger] serviceClassWithCachedProtocol:@protocol(cachedProtocol)]
 
+/// Un Cached
 #define ServiceWithProtocol(aProtocol) [[ProService sharedManger] serviceClassWithProtocol:@protocol(aProtocol)]
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProService : NSObject
+
+/// Default  Value YES
+@property (nonatomic,assign)BOOL assertMode;
 
 + (instancetype)sharedManger;
 

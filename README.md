@@ -142,7 +142,15 @@ if (vipService && isVip) {
 
 ```
 
--  对外业务能力如果未实现，运行期调用会触发断言处，便于发现问题。 ✅
+-  对外业务能力如果未实现，运行期调用会触发断言处，便于发现问题  ✅
+    - 1.6.0 + 无实现服务类，可选择关闭
+	 - 但**不推荐关闭**，便于及时发现问题。
+
+```ObjC
+/// Default  Value YES
+@property (nonatomic,assign)BOOL assertMode;
+
+```
 
 -  recommended convention
 

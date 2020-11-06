@@ -30,6 +30,7 @@ static NSString *const ProServiceClassStringID = @"Service";
     static ProService *sharedManger;
     dispatch_once(&once, ^{
         sharedManger = [[[self class] alloc] init];
+        sharedManger.assertMode = YES;
     });
     return sharedManger;
 }
@@ -55,14 +56,23 @@ static NSString *const ProServiceClassStringID = @"Service";
                           isCache:(BOOL)isCache {
     // current Protocol is Exist
     if (!aProtocol) {
-        NSAssert(!aProtocol, @"protocol not exist !");
+        if (self.assertMode) {
+            NSAssert(!aProtocol, @"protocol not exist !");
+        }
         return nil;
     }
     // Normal Service Class
     NSString *serviceClassString = [NSStringFromProtocol(aProtocol) stringByReplacingOccurrencesOfString:ProServiceProtocolStringID withString:ProServiceClassStringID];
     Class serviceClass = NSClassFromString(serviceClassString);
     if (!serviceClass) {
+        // rule Class -> MapType Class
         serviceClass = [self tryMapServiceClassWithProtocol:aProtocol];
+    }
+    if (!serviceClass) {
+        if (self.assertMode) {
+            NSAssert(YES, @"no implementation classe[Rule&&Map Class]");
+        }
+        return nil;
     }
     return [self checkServiceClass:serviceClass aProtocol:aProtocol isCache:isCache];
 }
@@ -81,7 +91,9 @@ static NSString *const ProServiceClassStringID = @"Service";
         }
         return serviceClass;
     } else {
-        NSAssert(!serviceClass, @"Current Class Not implementation Method or Not exist Service Class");
+        if (self.assertMode) {
+            NSAssert(!serviceClass, @"Current Class Not implementation Method or Not exist Service Class");
+        }
         return nil;
     }
 }
@@ -113,7 +125,7 @@ static NSString *const ProServiceClassStringID = @"Service";
 
 - (dispatch_queue_t)asyncProServiceKitOperationQueue {
     if (_asyncProServiceKitOperationQueue == nil) {
-        _asyncProServiceKitOperationQueue = dispatch_queue_create("com.ProServiceKit.operationQueue", DISPATCH_QUEUE_SERIAL);
+        _asyncProServiceKitOperationQueue = dispatch_queue_create("com.ProServiceKit.operationQueue", DISPATCH_QUEUE_CONCURRENT);
     }
     return _asyncProServiceKitOperationQueue;
 }
