@@ -8,12 +8,11 @@
 
 #import "LFLViewController.h"
 
-#import "LFLVipProtocol.h"
-#import "LFLPlayProtocol.h"
-#import "LFLUnRuleProtocol.h"
 #import <ProtocolServiceKit/ProtocolServiceKit.h>
 
-//#import "LFLAccountTool.h"
+#import <AccountBusiness/LFLVipProtocol.h>
+#import <PlayBusiness/LFLPlayProtocol.h>
+#import "LFLUnRuleProtocol.h"
 
 @interface LFLViewController ()
 

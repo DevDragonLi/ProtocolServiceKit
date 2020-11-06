@@ -10,7 +10,7 @@
 -  [Installation](#installation)
 
 -  [OC Example](#OCExample)
-
+	- 完善的中间件组件化示例工程
 -  [Swift Example](#swift示例)
 
 
@@ -109,6 +109,25 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 ## ObjC Example
 
 > To run the example/SwiftExample project, clone the repo, and run `pod install` from the Example directory first.
+
+> 为了方便理解，AccountBusiness和PlayBusiness 已独立为本地Pod组件，仅暴露Protocol文件，参考工程文件。
+
+```
+└── localPod
+    ├── AccountBusiness
+    │   ├── LFLAccountTool.h
+    │   ├── LFLAccountTool.m
+    │   ├── LFLVipProtocol.h
+    │   └── LFLVipService.m
+    ├── AccountBusiness.podspec
+    ├── PlayBusiness
+    │   ├── LFLPlayProtocol.h
+    │   ├── LFLPlayService.h
+    │   └── LFLPlayService.m
+    └── PlayBusiness.podspec
+
+```
+
 
 ### Main API
 

@@ -6,15 +6,11 @@
 //  Copyright © 2020 DevdragonLi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "LFLPlayProtocol.h"
-NS_ASSUME_NONNULL_BEGIN
+#import "LFLPlayService.h"
 
-@interface LFLPlayService : NSObject<LFLPlayProtocol>
+@interface LFLPlayService ()<LFLPlayProtocol>
 
 @end
-
-NS_ASSUME_NONNULL_END
 
 @implementation LFLPlayService
 
