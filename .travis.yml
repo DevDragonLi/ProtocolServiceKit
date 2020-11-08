@@ -1,5 +1,5 @@
-language: swift
-osx_image: xcode12.0
+language: objective-c
+osx_image: xcode12.1
 
 env:
   global:
@@ -30,13 +30,13 @@ script:
   - echo Check if the library described by the podspec can be built
   - pod lib lint --allow-warnings
 
-  - echo Build SwiftExample
-  - pod install --project-directory=SwiftExample
-  - xcodebuild build -workspace SwiftExample/SwiftExample.xcworkspace -scheme SwiftExample -destination 'platform=iOS Simulator,name=iPhone X' -configuration Debug | xcpretty -c
+  # - echo Build SwiftExample
+  # - pod install --project-directory=SwiftExample
+  # - xcodebuild build -workspace SwiftExample/SwiftExample.xcworkspace -scheme SwiftExample -destination 'platform=iOS Simulator,name=iPhone X' -configuration Debug | xcpretty -c
 
-  # - echo Build OCExample
-  # - pod install --project-directory=OCExample
-  # - xcodebuild build -workspace OCExample/ProtocolServiceManger.xcworkspace -scheme ProtocolServiceManger_Example -destination 'platform=iOS Simulator,name=iPhone X' -configuration Debug | xcpretty -c
+  - echo Build OCExample
+  - pod install --project-directory=OCExample
+  - xcodebuild build -workspace OCExample/ProtocolServiceManger.xcworkspace -scheme ProtocolServiceManger_Example -destination 'platform=iOS Simulator,name=iPhone X' -configuration Debug | xcpretty -c
 
   - echo Clean DerivedData
   - rm -rf ~/Library/Developer/Xcode/DerivedData/

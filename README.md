@@ -1,18 +1,20 @@
 # ProtocolServiceKit
 
--  [业界常用的组件通信方案优缺点对比](#业界常用的组件通信方案)
-    -  [URL Router](#url-router)
-    -  [Target-Action](#target-action)
-    -  [Protocol-Class](#protocol-class)
+#### [业界常用的组件通信方案优缺点对比](#业界常用的组件通信方案)
+-  [URL Router](#url-router)
+-  [Target-Action](#target-action)
+-  [Protocol-Class](#protocol-class)
 
--  [ProtocolServiceKit](#protocolservicekit)
+#### [ProtocolServiceKit介绍](#protocolservicekit)
+- `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
+- OC/Swift项目均可使用此Kit
+- 支持不规则命名/缓存机制
 
--  [Installation](#installation)
+#### [Installation](#installation)
 
--  [OC Example](#OCExample)
-	- 完善的中间件组件化示例工程
--  [Swift Example](#swift示例)
+#### [OC Example](#OCExample)（完善的中间件组件化示例工程）
 
+####  [Swift Example](#swift示例)
 
 [![CI
 Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=flat)](https://travis-ci.org/DevdragonLi/ProtocolServiceKit)
@@ -20,11 +22,7 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 [![License](https://img.shields.io/cocoapods/l/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 [![Platform](https://img.shields.io/cocoapods/p/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 
->`东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 
->支持不规则命名/缓存机制
-
->OC/Swift项目均可使用此Kit
 
 ## 业界常用的组件通信方案
 
@@ -99,7 +97,7 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 
 ```ruby
 // recommended
-pod 'ProtocolServiceKit',"~>1.5.0"
+pod 'ProtocolServiceKit',"~>1.8.0"
 
 deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"

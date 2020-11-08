@@ -1,8 +1,5 @@
 # OS X
 .DS_Store
-
-# Xcode
-build/
 xcuserdata/
 xcshareddata/
 *.pbxuser
@@ -18,8 +15,6 @@ xcuserdata/
 profile
 *.moved-aside
 DerivedData
-*.hmap
-*.ipa
 
 # Bundler
 .bundle
