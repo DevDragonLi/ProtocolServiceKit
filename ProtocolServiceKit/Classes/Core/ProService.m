@@ -56,9 +56,7 @@ static NSString *const ProServiceClassStringID = @"Service";
                           isCache:(BOOL)isCache {
     // current Protocol is Exist
     if (!aProtocol) {
-        if (self.assertMode) {
-            NSAssert(!aProtocol, @"protocol not exist !");
-        }
+        NSAssert(self.assertMode, @"protocol not exist !");
         return nil;
     }
     // Normal Service Class
@@ -69,9 +67,7 @@ static NSString *const ProServiceClassStringID = @"Service";
         serviceClass = [self tryMapServiceClassWithProtocol:aProtocol];
     }
     if (!serviceClass) {
-        if (self.assertMode) {
-            NSAssert(YES, @"no implementation classe[Rule&&Map Class]");
-        }
+        NSAssert(self.assertMode, @"no implementation classe[Rule&&Map Class]");
         return nil;
     }
     return [self checkServiceClass:serviceClass aProtocol:aProtocol isCache:isCache];
@@ -91,9 +87,7 @@ static NSString *const ProServiceClassStringID = @"Service";
         }
         return serviceClass;
     } else {
-        if (self.assertMode) {
-            NSAssert(!serviceClass, @"Current Class Not implementation Method or Not exist Service Class");
-        }
+        NSAssert(self.assertMode, @"Current Class Not implementation Method or Not exist Service Class");
         return nil;
     }
 }
