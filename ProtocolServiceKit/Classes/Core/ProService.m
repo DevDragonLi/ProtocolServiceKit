@@ -13,7 +13,7 @@ static NSString *const ProServiceClassStringID = @"Service";
 
 @interface ProService ()
 
-@property (nonatomic, strong) dispatch_queue_t asyncProServiceKitOperationQueue;
+/**@property (nonatomic, strong) dispatch_queue_t asyncProServiceKitOperationQueue;*/
 
 /// Map < Key:protocolKey Value:serviceClassString > 
 @property (nonatomic,strong,nullable) NSMutableDictionary < NSString *, NSString * > * mapDics;
@@ -30,7 +30,6 @@ static NSString *const ProServiceClassStringID = @"Service";
     static ProService *sharedManger;
     dispatch_once(&once, ^{
         sharedManger = [[[self class] alloc] init];
-        sharedManger.assertMode = YES;
     });
     return sharedManger;
 }
@@ -56,7 +55,7 @@ static NSString *const ProServiceClassStringID = @"Service";
                           isCache:(BOOL)isCache {
     // current Protocol is Exist
     if (!aProtocol) {
-        NSAssert(self.assertMode, @"protocol not exist !");
+        NSAssert(self.ignoreSafeMode, @"【ProtocolServiceKit：】This protocol not exist !");
         return nil;
     }
     // Normal Service Class
@@ -65,11 +64,18 @@ static NSString *const ProServiceClassStringID = @"Service";
     if (!serviceClass) {
         // rule Class -> MapType Class
         serviceClass = [self tryMapServiceClassWithProtocol:aProtocol];
+        
+        if (!serviceClass) {
+            NSAssert(self.ignoreSafeMode, @"【ProtocolServiceKit：】no implementation Map Service Class]");
+        }
+        return serviceClass;
     }
+    
     if (!serviceClass) {
-        NSAssert(self.assertMode, @"no implementation classe[Rule&&Map Class]");
+        NSAssert(self.ignoreSafeMode, @"【ProtocolServiceKit：】no implementation classe[Rule&&Map Class]");
         return nil;
     }
+    
     return [self checkServiceClass:serviceClass aProtocol:aProtocol isCache:isCache];
 }
 
@@ -81,13 +87,11 @@ static NSString *const ProServiceClassStringID = @"Service";
     // make Sure implClass conformsToProtocol then return ServiceClass
     if (serviceClass && [serviceClass conformsToProtocol:aProtocol]) {
         if (isCache) {
-            [self __backGroundTaskWithdispatchBlock:^{
-                [self.cacheDics setValue:serviceClass forKey:NSStringFromProtocol(aProtocol)];
-            }];
+            [self.cacheDics setValue:serviceClass forKey:NSStringFromProtocol(aProtocol)];
         }
         return serviceClass;
     } else {
-        NSAssert(self.assertMode, @"Current Class Not implementation Method or Not exist Service Class");
+        NSAssert(self.ignoreSafeMode, @"【ProtocolServiceKit：】Current Class Not implementation Method or Not exist Service Class");
         return nil;
     }
 }
@@ -96,33 +100,17 @@ static NSString *const ProServiceClassStringID = @"Service";
 
 - (Class)tryMapServiceClassWithProtocol:(Protocol *)aProtocol {
     NSString *mapClassString = [self.mapDics objectForKey:NSStringFromProtocol(aProtocol)];
+    NSLog(@"%@",mapClassString);
     return NSClassFromString(mapClassString);
 }
 
 - (void)configProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *>*)mapDics {
-    [self __backGroundTaskWithdispatchBlock:^{
-        [mapDics enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull protocolKey, NSString *  _Nonnull serviceClassString, BOOL * _Nonnull stop) {
-            [self.mapDics setValue:serviceClassString forKey:protocolKey];
-        }];
+    [mapDics enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull protocolKey, NSString *  _Nonnull serviceClassString, BOOL * _Nonnull stop) {
+        [self.mapDics setValue:serviceClassString forKey:protocolKey];
     }];
 }
 
-- (void)__backGroundTaskWithdispatchBlock:(void (^)(void))dispatchBlock {
-    if (dispatchBlock) {
-        dispatch_async(self.asyncProServiceKitOperationQueue, ^{
-            dispatchBlock();
-        });
-    }
-}
-
 #pragma mark lazy propertys
-
-- (dispatch_queue_t)asyncProServiceKitOperationQueue {
-    if (_asyncProServiceKitOperationQueue == nil) {
-        _asyncProServiceKitOperationQueue = dispatch_queue_create("com.ProServiceKit.operationQueue", DISPATCH_QUEUE_CONCURRENT);
-    }
-    return _asyncProServiceKitOperationQueue;
-}
 
 - (NSMutableDictionary<NSString *,Class> *)cacheDics {
     if (!_cacheDics) {

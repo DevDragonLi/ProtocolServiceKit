@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ProService : NSObject
 
-/// Default  Value YES
-@property (nonatomic,assign)BOOL assertMode;
+/// Default  Value NO 【setting YES，ignore All Error Type 】
+@property (nonatomic,assign)BOOL ignoreSafeMode;
 
 + (instancetype)sharedManger;
 
@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// config Protocol && ServiceClass MapDics
 /// @param mapDics   Map < Key:protocolStringKey Value:serviceClassString >
+/// NOTE: main Thread run【make sure any map Service can Return Frist】
 - (void)configProtocolServiceMapsWithDic:(NSDictionary < NSString * ,NSString *> *)mapDics;
 
 @end

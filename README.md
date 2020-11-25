@@ -16,8 +16,6 @@
 
 ####  [Swift Example](#swift示例)
 
-[![CI
-Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=flat)](https://travis-ci.org/DevdragonLi/ProtocolServiceKit)
 [![Version](https://img.shields.io/cocoapods/v/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 [![License](https://img.shields.io/cocoapods/l/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 [![Platform](https://img.shields.io/cocoapods/p/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
@@ -86,7 +84,8 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
     -  建议项目最常用到组件Protocol 和Service
         使用，Kit内部维护一张表，用于直接返回ServiceClass
     -  1.3.0 + Support
-- **Map**机制，可以不按照约定规则来提供ServiceClass，项目初始化/**需要处**提供map表机制，解决**强制**命名类规范问题，可自由自定义IMPClass。
+- **Map**机制
+	- 可以不按照约定规则来提供ServiceClass，项目初始化/**需要处**提供map表机制，解决**强制**命名类规范问题，可自由自定义IMPClass。
     ✅
     - 1.2.0 + Support
 -  部分缺点同上`Protocol-Class`
@@ -97,7 +96,7 @@ Status](https://img.shields.io/travis/DevdragonLi/ProtocolServiceKit.svg?style=f
 
 ```ruby
 // recommended
-pod 'ProtocolServiceKit',"~>1.8.0"
+pod 'ProtocolServiceKit',"~>2.0.0"
 
 deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
@@ -159,13 +158,16 @@ if (vipService && isVip) {
 
 ```
 
--  对外业务能力如果未实现，运行期调用会触发断言处，便于发现问题  ✅
-    - 1.6.0 + 无实现服务类，可选择关闭
-	 - 但**不推荐关闭**，便于及时发现问题。
+-  忽略安全模式
+
+	>   对外业务能力如果未实现，运行期调用会触发断言处，便于发现问题  ✅
+  
+	- 1.6.0 + 无实现服务类，可选择关闭。
+	- 但**不推荐忽略安全模式手动关闭**，便于及时发现问题。
 
 ```ObjC
-/// Default  Value YES
-@property (nonatomic,assign)BOOL assertMode;
+/// Default  Value NO 【setting YES，ignore All Error Type 】
+@property (nonatomic,assign)BOOL ignoreSafeMode;
 
 ```
 

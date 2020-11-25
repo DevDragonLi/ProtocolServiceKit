@@ -12,6 +12,7 @@
 
 #import <AccountBusiness/LFLVipProtocol.h>
 #import <PlayBusiness/LFLPlayProtocol.h>
+
 #import "LFLUnRuleProtocol.h"
 
 @interface LFLViewController ()
@@ -22,9 +23,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    [self normalExample];
+    [self normalExample];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self unRuleExample];
 }
+
 /// Map  =》 LFLAppDelegate.m
 - (void)unRuleExample {
     Class <LFLUnRuleProtocol> ruleService = ServiceWithProtocol(LFLUnRuleProtocol);
@@ -53,7 +58,6 @@
     } else {
         NSLog(@"Error:LFLVipProtocol notfound service Class");
     }
-    
 }
 
 @end
