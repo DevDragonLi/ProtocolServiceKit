@@ -1,26 +1,28 @@
 # ProtocolServiceKit
 
+[![Version](https://img.shields.io/cocoapods/v/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
+[![License](https://img.shields.io/cocoapods/l/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
+[![Platform](https://img.shields.io/cocoapods/p/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
+
 #### [业界常用的组件通信方案优缺点对比](#业界常用的组件通信方案)
 -  [URL Router](#url-router)
 -  [Target-Action](#target-action)
 -  [Protocol-Class](#protocol-class)
 
-#### [ProtocolServiceKit介绍](#protocolservicekit)
+#### [ProtocolServiceKit](#protocolservicekit)
 - `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 - OC/Swift项目均可使用此Kit
-- 支持不规则命名/缓存机制
+- 支持不规则命名及缓存
+	- 【Map】/【Cache】机制
+- 安全模式
 
 #### [Installation](#installation)
 
-#### [OC Example](#OCExample)（完善的中间件组件化示例工程）
+#### [ObjC/Swift Example](#OCExample)
 
-####  [Swift Example](#swift示例)
+> 完善的中间件组件化示例工程
 
-[![Version](https://img.shields.io/cocoapods/v/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
-[![License](https://img.shields.io/cocoapods/l/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
-[![Platform](https://img.shields.io/cocoapods/p/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
-
-
+- Main API
 
 ## 业界常用的组件通信方案
 
@@ -66,33 +68,36 @@
 
 -   优点：接口与实现分离，编译阶段就能发现问题 ✅
 
--   缺点：需要注册和内存占用
-
+-   缺点：需要注册和内存占用 此`repo` 简易组件已解决✅
     -   由框架来创建所有对象，创建方式有限，例如不支持外部传入参数，再调用自定义初始化方法
-    -   只做了 protocol 和 class
-        的匹配，不支持更复杂的创建方式和依赖注入
+    -   只做了 protocol 和 class 的匹配，不支持更复杂的创建方式和依赖注入
     -   无法保证所使用的 protocol 一定存在对应的模块，也无法直接判断某个
-        protocol 是否能用于获取模块
-    -   此`repo` 简易组件已解决✅
+        protocol 是否能用于获取模块 此`repo` 简易组件已解决✅
 
 ## ProtocolServiceKit
 
-> Protocol-Class方案
+> 基于Protocol-Class方案
 
 -  优点：同上`Protocol-Class`方案，但移除了注册逻辑，解决占用内存问题。
--  缓存机制 ✅
-    -  建议项目最常用到组件Protocol 和Service
-        使用，Kit内部维护一张表，用于直接返回ServiceClass
-    -  1.3.0 + Support
-- **Map**机制
+-  **Cache** ✅
+    - 建议项目最常用到组件Protocol 和Service 使用，Kit内部维护一张表，用于直接返回ServiceClass
+    - 1.3.0 + Support
+- **Map** ✅
+	- 1.2.0 + Support
 	- 可以不按照约定规则来提供ServiceClass，项目初始化/**需要处**提供map表机制，解决**强制**命名类规范问题，可自由自定义IMPClass。
-    ✅
-    - 1.2.0 + Support
--  部分缺点同上`Protocol-Class`
+
+- 安全模式
+
+	>  对外业务能力如果未实现，运行期调用会触发断言处，便于发现问题  ✅
+
+	- 1.6.0+ ~2.0.0支持 ✅
+	-  可选择关闭。但**不推荐忽略安全模式手动关闭**，便于及时发现问题。
+
+- 部分缺点同上`Protocol-Class`
 
 ## Installation
 
-> ProtocolServiceKit is available through [ProtocolServiceKit](https://cocoapods.org/pods/ProtocolServiceKit). To install it, simply add the following line to your Podfile:
+> ProtocolServiceKit is available through [cocoapods](https://cocoapods.org/pods/ProtocolServiceKit). To install it, simply add the following line to your Podfile:
 
 ```ruby
 // recommended
@@ -128,6 +133,7 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 
 ### Main API
 
+
 ```objc
 
 - (Class)serviceClassWithProtocol:(Protocol *)aProtocol;
@@ -157,13 +163,6 @@ if (vipService && isVip) {
 }
 
 ```
-
--  忽略安全模式
-
-	>   对外业务能力如果未实现，运行期调用会触发断言处，便于发现问题  ✅
-  
-	- 1.6.0 + 无实现服务类，可选择关闭。
-	- 但**不推荐忽略安全模式手动关闭**，便于及时发现问题。
 
 ```ObjC
 /// Default  Value NO 【setting YES，ignore All Error Type 】
