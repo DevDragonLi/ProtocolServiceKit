@@ -1,6 +1,6 @@
 //
 //  ProtocolServiceKit.h
-//  ProtocolServiceManger
+//  ProtocolServiceKit
 //
 //  Created by Devdragonli on 16/8/2020.
 //

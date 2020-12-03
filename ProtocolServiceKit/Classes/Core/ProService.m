@@ -1,6 +1,6 @@
 //
-//  ProtocolServiceManger.m
-//  ProtocolServiceManger
+//  ProService.m
+//  ProService
 //
 //  Created by DevDragonli on 18/7/2020.
 //
@@ -44,7 +44,7 @@ static NSString *const ProServiceClassStringID = @"Service";
     // frist try cacheServiceClass
     Class cacheServiceClass = [self.cacheDics objectForKey:NSStringFromProtocol(cachedProtocol)];
     if (cacheServiceClass) {
-        // if cahched Service,can return it!
+        // if cahched Service,can return
         return cacheServiceClass;
     } else {
         return [self serviceClassWithProtocol:cachedProtocol isCache:YES];
@@ -55,7 +55,7 @@ static NSString *const ProServiceClassStringID = @"Service";
                           isCache:(BOOL)isCache {
     // current Protocol is Exist
     if (!aProtocol) {
-        NSAssert(self.ignoreSafeMode, @"【ProtocolServiceKit：】This protocol not exist !");
+        NSAssert1(self.ignoreSafeMode, @"【ProtocolServiceKit Debug Msg】%@ not Exist! If ignore,Please Setting `ProService.sharedManger.ignoreSafeMode` true", NSStringFromProtocol(aProtocol));
         return nil;
     }
     // Normal Service Class
@@ -66,13 +66,13 @@ static NSString *const ProServiceClassStringID = @"Service";
         serviceClass = [self tryMapServiceClassWithProtocol:aProtocol];
         
         if (!serviceClass) {
-            NSAssert(self.ignoreSafeMode, @"【ProtocolServiceKit：】no implementation Map Service Class]");
+            NSAssert1(self.ignoreSafeMode, @"【ProtocolServiceKit Debug Msg】%@ not exist Map Service Class! If ignore,Please Setting `ProService.sharedManger.ignoreSafeMode` true", NSStringFromProtocol(aProtocol));
         }
         return serviceClass;
     }
     
     if (!serviceClass) {
-        NSAssert(self.ignoreSafeMode, @"【ProtocolServiceKit：】no implementation classe[Rule&&Map Class]");
+        NSAssert1(self.ignoreSafeMode, @"【ProtocolServiceKit Debug Msg】%@ not existclasse[Rule&&Map Class! If ignore,Please Setting `ProService.sharedManger.ignoreSafeMode` true", NSStringFromProtocol(aProtocol));
         return nil;
     }
     
@@ -91,7 +91,7 @@ static NSString *const ProServiceClassStringID = @"Service";
         }
         return serviceClass;
     } else {
-        NSAssert(self.ignoreSafeMode, @"【ProtocolServiceKit：】Current Class Not implementation Method or Not exist Service Class");
+        NSAssert1(self.ignoreSafeMode, @"【ProtocolServiceKit Debug Msg】%@ Not implementation Method or Not exist Service Class! If ignore,Please Setting `ProService.sharedManger.ignoreSafeMode` true",serviceClass);
         return nil;
     }
 }
@@ -100,7 +100,6 @@ static NSString *const ProServiceClassStringID = @"Service";
 
 - (Class)tryMapServiceClassWithProtocol:(Protocol *)aProtocol {
     NSString *mapClassString = [self.mapDics objectForKey:NSStringFromProtocol(aProtocol)];
-    NSLog(@"%@",mapClassString);
     return NSClassFromString(mapClassString);
 }
 

@@ -1,16 +1,16 @@
 //
-//  ProtocolServiceManger.h
-//  ProtocolServiceManger
+//  ProService.h
+//  ProService
 //
 //  Created by DevDragonli on 18/7/2020.
 //
 
 #import <Foundation/Foundation.h>
 
-/// Recommend: cache
+/// Recommend：cache Service Class
 #define ServiceWithCachedProtocol(cachedProtocol) [[ProService sharedManger] serviceClassWithCachedProtocol:@protocol(cachedProtocol)]
 
-/// Un Cached
+/// Uncache Service Class
 #define ServiceWithProtocol(aProtocol) [[ProService sharedManger] serviceClassWithProtocol:@protocol(aProtocol)]
 
 NS_ASSUME_NONNULL_BEGIN

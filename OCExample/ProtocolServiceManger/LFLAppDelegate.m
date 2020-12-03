@@ -21,8 +21,6 @@
 
 - (void)initConfigServiceMaps {
     
-//    ProService.sharedManger.ignoreSafeMode = YES;
-    
     NSDictionary *mapDic = @{
         @"LFLUnRuleProtocol":@"LFLTestRuleIMP"
     };
