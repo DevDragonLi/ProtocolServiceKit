@@ -2,12 +2,14 @@ Pod::Spec.new do |s|
   
   s.name             = 'ProtocolServiceKit'
   
-  s.version          = '2.0.2'
+  s.version          = '2.1.0'
   
-  s.summary          = '最高效简洁的iOS组件中间件：ProtocolServiceKit'
+  s.summary          = 'ProtocolServiceKit：The most efficient and concise iOS Component Middleware'
 
   s.description      = <<-DESC
-  东半球最高效简洁的iOS组件中间件，支持缓存，Map机制.
+    
+    东半球最高效简洁的iOS组件中间件，支持Cache，Map机制。
+    支持ObjC/Swift。
                        DESC
 
   s.homepage         = 'https://github.com/DevdragonLi/ProtocolServiceKit'

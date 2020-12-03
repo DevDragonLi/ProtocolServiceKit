@@ -12,8 +12,7 @@
 #### [ProtocolServiceKit](#protocolservicekit)
 - `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 - OC/Swift项目均可使用此Kit
-- 支持不规则命名及缓存
-	- 【Map】/【Cache】机制
+- 支持【Map】【Cache】机制
 - 安全模式
 
 #### [Installation](#installation)
@@ -22,7 +21,7 @@
 
 > 完善的中间件组件化示例工程
 
-- Main API
+- Use Example【Swift /ObjC】
 
 ## 业界常用的组件通信方案
 
@@ -101,7 +100,7 @@
 
 ```ruby
 // recommended
-pod 'ProtocolServiceKit',"~>2.0.0"
+pod 'ProtocolServiceKit',"~>2.1.0"
 
 deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
@@ -189,7 +188,21 @@ NSDictionary *mapDic = @{
 
 ## Swift Example  
 
+- 大中型项目，可以内部新建一个Pod `ServiceClass`,可参考SwiftDemo 中 `ServiceClass.Swift`
+
 ```Swift 
+
+// 1.1 use
+
+let normalService : AnyClass = ServiceClass.serviceClass(aProtocol: SwiftNormalProtocol.self)
+
+// 1.2 Xcode can tip functions
+normalService.normalFunction()
+
+// 1.3 cache Service Class
+let normalCacheServiceDemo : AnyClass = ServiceClass.serviceCacheClass(aProtocol: SwiftNormalProtocol.self)
+normalCacheServiceDemo.normalFunction()
+
 
 File:SwiftNormalProtocol.swift
 
