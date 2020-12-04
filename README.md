@@ -89,7 +89,7 @@
 
 	>  对外业务能力如果未实现，运行期调用会触发断言处，便于发现问题  ✅
 
-	- 1.6.0+ ~2.0.0支持 ✅
+	- 1.6.0 + (推荐2.1.0+) Support ✅
 	-  可选择关闭。但**不推荐忽略安全模式手动关闭**，便于及时发现问题。
 
 - 部分缺点同上`Protocol-Class`
@@ -226,7 +226,7 @@ class SwiftNormalService:SwiftNormalProtocol {
 
 func normalDemo() {
     
-    let normalService : AnyClass = ProService.sharedManger().serviceClass(with:SwiftNormalProtocol.self)
+    let normalService : AnyClass = ServiceClass.serviceClass(with:SwiftNormalProtocol.self)
     
     // can tip functions
     normalService.normalFunction()
