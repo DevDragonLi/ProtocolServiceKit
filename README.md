@@ -1,27 +1,44 @@
 # ProtocolServiceKit
 
+</p>
+<p align='center'>
+
 [![Version](https://img.shields.io/cocoapods/v/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 [![License](https://img.shields.io/cocoapods/l/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 [![Platform](https://img.shields.io/cocoapods/p/ProtocolServiceKit.svg?style=flat)](https://cocoapods.org/pods/ProtocolServiceKit)
 
-#### [业界常用的组件通信方案优缺点对比](#业界常用的组件通信方案)
+</p>
+
+</p>
+<p align='left'>
+
+![DevDragonLi Repo Star](http://repo-charts.taroxin.cn/api/repo/starChart?repo=ProtocolServiceKit&owner=DevDragonLi)
+
+![DevDragonLi Repo Language](http://repo-charts.taroxin.cn/api/repo/languageChart?owner=DevDragonLi&repo=ProtocolServiceKit)
+
+</p>
+
+### [业界常用的组件通信方案优缺点对比](#业界常用的组件通信方案)
+
 -  [URL Router](#url-router)
 -  [Target-Action](#target-action)
 -  [Protocol-Class](#protocol-class)
 
-#### [ProtocolServiceKit](#protocolservicekit)
+### [ProtocolServiceKit](#protocolservicekit)
+
 - `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 - OC/Swift项目均可使用此Kit
 - 支持【Map】【Cache】机制
 - 安全模式
 
-#### [Installation](#installation)
+### [Installation](#installation)
 
-#### [ObjC/Swift Example](#OCExample)
+### [ObjC/Swift Example](#OCExample)
 
 > 完善的中间件组件化示例工程
 
 - Use Example【Swift /ObjC】
+
 
 ## 业界常用的组件通信方案
 
@@ -111,7 +128,7 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 
 > To run the example/SwiftExample project, clone the repo, and run `pod install` from the Example directory first.
 
-> 为了方便理解，AccountBusiness和PlayBusiness 已独立为本地Pod组件，仅暴露Protocol文件，参考工程文件。
+> 为了方便理解，AccountBusiness和PlayBusiness 已独立为本地Pod组件，仅暴露Protocol文件(参考podspec描述：远端部署后Service类层实质不可访问)，参考工程文件。
 
 ```
 └── localPod
