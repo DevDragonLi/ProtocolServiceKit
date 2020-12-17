@@ -12,7 +12,7 @@
 		8454845B2515B9F800F41D36 /* MapUnRuleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454845A2515B9F800F41D36 /* MapUnRuleClass.swift */; };
 		8491DF5F24F1EE660046FB95 /* SwiftNormalProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491DF5D24F1EE660046FB95 /* SwiftNormalProtocol.swift */; };
 		8491DF6024F1EE660046FB95 /* SwiftNormalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491DF5E24F1EE660046FB95 /* SwiftNormalService.swift */; };
-		849C1C942578CE11006C510B /* ServiceClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C1C932578CE11006C510B /* ServiceClass.swift */; };
+		849C1C942578CE11006C510B /* ServiceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849C1C932578CE11006C510B /* ServiceRouter.swift */; };
 		84E9DC7424E98ED500887623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9DC7324E98ED500887623 /* AppDelegate.swift */; };
 		84E9DC7824E98ED500887623 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9DC7724E98ED500887623 /* ViewController.swift */; };
 		84E9DC7B24E98ED500887623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E9DC7924E98ED500887623 /* Main.storyboard */; };
@@ -28,7 +28,7 @@
 		8454845A2515B9F800F41D36 /* MapUnRuleClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUnRuleClass.swift; sourceTree = "<group>"; };
 		8491DF5D24F1EE660046FB95 /* SwiftNormalProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNormalProtocol.swift; sourceTree = "<group>"; };
 		8491DF5E24F1EE660046FB95 /* SwiftNormalService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNormalService.swift; sourceTree = "<group>"; };
-		849C1C932578CE11006C510B /* ServiceClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceClass.swift; sourceTree = "<group>"; };
+		849C1C932578CE11006C510B /* ServiceRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceRouter.swift; sourceTree = "<group>"; };
 		84E9DC7024E98ED500887623 /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E9DC7324E98ED500887623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E9DC7724E98ED500887623 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				84E9DC7324E98ED500887623 /* AppDelegate.swift */,
-				849C1C932578CE11006C510B /* ServiceClass.swift */,
+				849C1C932578CE11006C510B /* ServiceRouter.swift */,
 				845484662515BB3900F41D36 /* Map */,
 				8491DF5C24F1EE660046FB95 /* Normal */,
 				84E9DC7724E98ED500887623 /* ViewController.swift */,
@@ -237,7 +237,7 @@
 				8454845B2515B9F800F41D36 /* MapUnRuleClass.swift in Sources */,
 				8491DF5F24F1EE660046FB95 /* SwiftNormalProtocol.swift in Sources */,
 				845484552515B9AD00F41D36 /* MapExampleProtocol.swift in Sources */,
-				849C1C942578CE11006C510B /* ServiceClass.swift in Sources */,
+				849C1C942578CE11006C510B /* ServiceRouter.swift in Sources */,
 				84E9DC7824E98ED500887623 /* ViewController.swift in Sources */,
 				84E9DC7424E98ED500887623 /* AppDelegate.swift in Sources */,
 				8491DF6024F1EE660046FB95 /* SwiftNormalService.swift in Sources */,

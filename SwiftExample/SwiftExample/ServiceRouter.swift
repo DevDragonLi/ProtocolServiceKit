@@ -1,15 +1,15 @@
 //
-//  ServiceClass.swift
-//  ServiceClass
+//  ServiceRouter.swift
+//  ServiceRouter
 //
 //  Created by DevDragonLi on 3/12/2020.
-//  Copyright © 2020 ServiceClass. All rights reserved.
+//  Copyright © 2020 ServiceRouter. All rights reserved.
 //  
 
 import Foundation
 import ProtocolServiceKit
 
-class ServiceClass {
+class ServiceRouter {
     
     static  public func configIgnoreSafeMode(ignoreSafeMode:Bool) {
         ProService.sharedManger().ignoreSafeMode = ignoreSafeMode
