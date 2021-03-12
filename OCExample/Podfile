@@ -1,11 +1,12 @@
-use_frameworks!
+source 'https://github.com/Todaycoding/DragonSpecs.git'
+source 'https://cdn.cocoapods.org'
 
 platform :ios, '10.0'
 
-target 'ProtocolServiceManger_Example' do
+target 'ProtocolServiceKit_Demo_Example' do
+  use_frameworks!
   pod 'ProtocolServiceKit', :path => '../'
-  pod 'AccountBusiness', :path => './localPod'
-  pod 'PlayBusiness', :path => './localPod'
-  
+  pod 'AccountBusiness'
+  pod 'PlayBusiness'
 
 end

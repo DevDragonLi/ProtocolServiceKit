@@ -116,11 +116,13 @@
 
 > ProtocolServiceKit is available through [cocoapods](https://cocoapods.org/pods/ProtocolServiceKit). To install it, simply add the following line to your Podfile:
 
-```ruby
-// recommended
-pod 'ProtocolServiceKit',"~>2.1.0"
 
-deprecate
+```ruby
+
+// recommended 
+pod 'ProtocolServiceKit',"~>2.1.0"  
+
+// deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
 
 ```
@@ -129,24 +131,7 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 
 > To run the example/SwiftExample project, clone the repo, and run `pod install` from the Example directory first.
 
-> 为了方便理解，AccountBusiness和PlayBusiness 已独立为本地Pod组件，仅暴露Protocol文件(参考podspec描述：远端部署后Service类层实质不可访问)，参考工程文件。
-
-```
-└── localPod
-    ├── AccountBusiness
-    │   ├── LFLAccountTool.h
-    │   ├── LFLAccountTool.m
-    │   ├── LFLVipProtocol.h
-    │   └── LFLVipService.m
-    ├── AccountBusiness.podspec
-    ├── PlayBusiness
-    │   ├── LFLPlayProtocol.h
-    │   ├── LFLPlayService.h
-    │   └── LFLPlayService.m
-    └── PlayBusiness.podspec
-
-```
-
+> 为了方便理解，AccountBusiness和PlayBusiness 已部署为远端示例组件，仅暴露Protocol文件
 
 ### Main API
 
@@ -167,9 +152,10 @@ pod 'ProtocolServiceManger',"~>1.0.0"
 
 // VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
 // ServiceWithCachedProtocol 缓存使用
+
 Class <LFLVipProtocol> vipService = ServiceWithProtocol(LFLVipProtocol);
-// 不直接使用对应账户类
-// BOOL isVip = [LFLAccountTool isUserVipStatus];
+
+// 不直接使用对应账户类  [LFLAccountTool isUserVipStatus];
 
 BOOL isVip = [vipService isCurrentUserVipStatus];
 
@@ -200,7 +186,7 @@ if (vipService && isVip) {
 NSDictionary *mapDic = @{
     @"LFLUnRuleProtocol":@"LFLTestRuleIMP"
 };
-[[ProtocolServiceManger sharedManger]configProtocolServiceMapsWithDic:mapDic];
+[[ProService sharedManger] configProtocolServiceMapsWithDic:mapDic];
 
 ```
 

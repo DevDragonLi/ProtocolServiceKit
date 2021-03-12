@@ -9,13 +9,11 @@
 #define ProtocolServiceKit_h
 
 #if __has_include(<ProtocolServiceKit/ProtocolServiceKit.h>)
-
 #import <ProtocolServiceKit/ProService.h>
 
 #else
 
 #import "ProService.h"
-
 #endif
 
 #endif /* ProtocolServiceKit_h */

@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     func ProtocolServiceMapDemo() {
-        // Map 涉及空间命名问题，后续版本再完善支持!
+        // Map 涉及空间命名问题，待完善支持!
         ServiceRouter.configProtocolServiceMaps(mapDic: ["SwiftExample.MapExampleProtocol":"SwiftExample.MapUnRuleClass"])
     }
     
