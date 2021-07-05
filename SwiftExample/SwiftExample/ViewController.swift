@@ -7,39 +7,42 @@
 //
 
 import UIKit
+import ProtocolServiceKit.ProService
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
-        
         ProtocolServiceNormalDemo()
-     // ProtocolServiceMapDemo()
-    
+        ProtocolServiceMapDemo()
     }
     
     func ProtocolServiceNormalDemo() {
         
         // 1.1 use
-        let normalService : AnyClass = ServiceRouter.serviceClass(aProtocol: SwiftNormalProtocol.self)
+        let normalService : AnyClass = ProtocolService.serviceClass(aProtocol: SwiftNormalProtocol.self)
+        
         // 1.2 Xcode can tip functions
+        
         normalService.normalFunction()
         
         // 1.3 cache Service Class
-        let normalCacheServiceDemo : AnyClass = ServiceRouter.serviceCacheClass(aProtocol: SwiftNormalProtocol.self)
+        let normalCacheServiceDemo : AnyClass = ProtocolService.serviceCacheClass(aProtocol: SwiftNormalProtocol.self)
         normalCacheServiceDemo.normalFunction()
         
         // 2.0 recommend most use Example
-        let normalCacheService : AnyClass = ServiceRouter.serviceCacheClass(aProtocol: SwiftNormalProtocol.self)
+        let normalCacheService : AnyClass = ProtocolService.serviceCacheClass(aProtocol: SwiftNormalProtocol.self)
         
         normalCacheService.normalFunction()
         
     }
     
     func ProtocolServiceMapDemo() {
-        // Map 涉及空间命名问题，待完善支持!
-        ServiceRouter.configProtocolServiceMaps(mapDic: ["SwiftExample.MapExampleProtocol":"SwiftExample.MapUnRuleClass"])
+        ProtocolService.configProtocolServiceMaps(mapDic: ["MapExampleProtocol":"MapUnRuleClass"], nameSpace: "SwiftExample")
+        
+        let mapCacheService : AnyClass = ProtocolService.serviceCacheClass(aProtocol: MapExampleProtocol.self)
+        mapCacheService.MapExampleFunction()
     }
     
 }

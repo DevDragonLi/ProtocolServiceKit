@@ -3,6 +3,7 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'SwiftExample' do
-  pod 'ProtocolServiceKit', :path => '../'
+  
+  pod 'ProtocolServiceKit/Swift', :path => '../'
 
 end

@@ -13,12 +13,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [self initServiceMaps];
+    [self configServiceMaps];
     
     return YES;
 }
 
-- (void)initServiceMaps {
+- (void)configServiceMaps {
     
     NSDictionary *mapDic = @{
         @"LFLUnRuleProtocol":@"LFLTestRuleIMP"

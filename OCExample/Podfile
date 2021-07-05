@@ -1,12 +1,16 @@
-source 'https://github.com/Todaycoding/DragonSpecs.git'
 source 'https://cdn.cocoapods.org'
 
 platform :ios, '10.0'
+use_frameworks!
 
 target 'ProtocolServiceKit_Demo_Example' do
-  use_frameworks!
+    
+  puts "make sure you can open GitHub website！"
+  
   pod 'ProtocolServiceKit', :path => '../'
-  pod 'AccountBusiness'
-  pod 'PlayBusiness'
+  
+  pod 'AccountBusiness',:git => "https://github.com/Todaycoding/ProtocolServiceKit-AccountMoudle.git"
+  
+  pod 'PlayBusiness',:git => "https://github.com/Todaycoding/ProtocolServiceKit-PlayMoudle.git"
 
 end

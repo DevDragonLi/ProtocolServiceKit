@@ -25,7 +25,7 @@
 
 >  `东半球`最高效的 Protocol<=>Service 中间件，解决中间件的占用内存问题。
 
-- Support:OC/Swift/OC+Swift
+- Support:ObjC/Swift项目(纯OC/Swift/混编)均可使用
 - Map && Cache
 - SafeMode 
 
@@ -116,11 +116,13 @@
 
 > ProtocolServiceKit is available through [cocoapods](https://cocoapods.org/pods/ProtocolServiceKit). To install it, simply add the following line to your Podfile:
 
-
 ```ruby
 
-// recommended 
-pod 'ProtocolServiceKit',"~>2.1.0"  
+// OC项目建议参考下行
+pod 'ProtocolServiceKit',"~>3.0.0"  # Default is ObjC
+
+// Swift项目建议参考下行
+pod 'ProtocolServiceKit/Swift',"~>3.0.0" 
 
 // deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"
@@ -192,49 +194,40 @@ NSDictionary *mapDic = @{
 
 ## Swift Example  
 
-- 大中型项目，可以内部新建一个Pod `ServiceRouter`,可参考SwiftDemo 中 `ServiceRouter.Swift`
+- ProtocolServiceKit.ProService
+
+- Swift版本有代码提示！
 
 ```Swift 
 
-// 1.1 use
+import ProtocolServiceKit.ProService
 
-let normalService : AnyClass = ServiceRouter.serviceClass(aProtocol: SwiftNormalProtocol.self)
-
-// 1.2 Xcode can tip functions
-normalService.normalFunction()
-
-// 1.3 cache Service Class
-let normalCacheServiceDemo : AnyClass = ServiceRouter.serviceCacheClass(aProtocol: SwiftNormalProtocol.self)
-normalCacheServiceDemo.normalFunction()
-
-
-File:SwiftNormalProtocol.swift
-
-@objc public protocol SwiftNormalProtocol {
-    
-   static func normalFunction()
-}
-
-
-import Foundation
-
-class SwiftNormalService:SwiftNormalProtocol {
-    
-  static  public func normalFunction() {
-      print("SwiftNormalService")
+ func ProtocolServiceNormalDemo() {
+        
+        // 1.1 use
+        let normalService : AnyClass = ProtocolService.serviceClass(aProtocol: SwiftNormalProtocol.self)
+        
+        // 1.2 Xcode can tip functions
+        
+        normalService.normalFunction()
+        
+        // 1.3 cache Service Class
+        let normalCacheServiceDemo : AnyClass = ProtocolService.serviceCacheClass(aProtocol: SwiftNormalProtocol.self)
+        normalCacheServiceDemo.normalFunction()
+        
+        // 2.0 recommend most use Example
+        let normalCacheService : AnyClass = ProtocolService.serviceCacheClass(aProtocol: SwiftNormalProtocol.self)
+        
+        normalCacheService.normalFunction()
+        
     }
     
-}
-
-// user example 
-
-func normalDemo() {
-    
-    let normalService : AnyClass = ServiceRouter.serviceClass(with:SwiftNormalProtocol.self)
-    
-    // can tip functions
-    normalService.normalFunction()
-}
+    func ProtocolServiceMapDemo() {
+        ProtocolService.configProtocolServiceMaps(mapDic: ["MapExampleProtocol":"MapUnRuleClass"], nameSpace: "SwiftExample")
+        
+        let mapCacheService : AnyClass = ProtocolService.serviceCacheClass(aProtocol: MapExampleProtocol.self)
+        mapCacheService.MapExampleFunction()
+    }
 
 ```
 
@@ -246,5 +239,5 @@ DevdragonLi, dragonLi_52171@163.com
 License
 -------
 
-ProtocolServiceKitis available under the MIT license. See the LICENSE
+ProtocolServiceKit is available under the MIT license. See the LICENSE
 file for more info.

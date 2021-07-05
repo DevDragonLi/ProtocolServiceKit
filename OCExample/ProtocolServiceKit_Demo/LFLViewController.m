@@ -31,9 +31,9 @@
 
 /// Map  =》 LFLAppDelegate.m
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
     // 此处Class 实际为LFLTestRuleIMP
     Class <LFLUnRuleProtocol> ruleService = ServiceWithProtocol(LFLUnRuleProtocol);
-    
     // 类函数
     [ruleService unRuleMethod];
     
@@ -43,20 +43,18 @@
     
 }
 
-/// Normal
+/// normalExample
 - (void)normalExample {
     
     // VIP和播放业务复杂后，只公开Protocol文件决定业务对外能力
-    
     Class <LFLVipProtocol> vipService = ServiceWithProtocol(LFLVipProtocol);
     
     // 不直接使用对应账户类 [LFLAccountTool isUserVipStatus];
-    
     BOOL isVip = [vipService isCurrentUserVipStatus];
-    
+
     if (vipService && isVip) {
+        // ServiceWithCachedProtocol:缓存API
         [ServiceWithCachedProtocol(LFLPlayProtocol) playMiniVideo];
-        
     } else {
         NSLog(@"Error:LFLVipProtocol not Found service Class");
     }

@@ -13,8 +13,6 @@ static NSString *const ProServiceClassStringID = @"Service";
 
 @interface ProService ()
 
-/**@property (nonatomic, strong) dispatch_queue_t asyncProServiceKitOperationQueue;*/
-
 /// Map < Key:protocolKey Value:serviceClassString > 
 @property (nonatomic,strong,nullable) NSMutableDictionary < NSString *, NSString * > * mapDics;
 
