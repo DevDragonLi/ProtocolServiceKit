@@ -119,10 +119,10 @@
 ```ruby
 
 // OC项目建议参考下行
-pod 'ProtocolServiceKit',"~>3.0.0"  # Default is ObjC
+pod 'ProtocolServiceKit',"~>2.2.1"  # Default is ObjC
 
 // Swift项目建议参考下行
-pod 'ProtocolServiceKit/Swift',"~>3.0.0" 
+pod 'ProtocolServiceKit/Swift',"~>2.2.1" 
 
 // deprecate
 pod 'ProtocolServiceManger',"~>1.0.0"

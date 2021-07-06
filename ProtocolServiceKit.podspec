@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   
   s.name             = 'ProtocolServiceKit'
   
-  s.version          = '2.1.6'
+  s.version          = '2.2.1'
   
   s.summary          = 'ProtocolServiceKit：The most efficient and concise iOS Component Middleware'
 
