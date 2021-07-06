@@ -23,8 +23,19 @@ import Foundation
         return ProService.sharedManger().serviceClass(withCachedProtocol: aProtocol)
     }
     
-    static  public func configProtocolServiceMaps(mapDic:[String:String],nameSpace:String) {
-        // ⚠️：I wont want check Parmas this function！！！
+    static  public func configProtocolServiceMaps(mapDic:[String:String]?,nameSpace:String?) {
+        /*
+         I wont want check Parmas this function！！！
+        */
+        
+        guard let mapDic = mapDic else {
+            return
+        }
+        
+        guard let nameSpace = nameSpace else {
+            return
+        }
+        
         var nameSpaceMapDic = [String:String]()
         mapDic.forEach { key,value in
             let keyValue = nameSpace + "." + key

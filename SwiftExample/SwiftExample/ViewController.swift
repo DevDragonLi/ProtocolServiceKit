@@ -39,8 +39,8 @@ class ViewController: UIViewController {
     }
     
     func ProtocolServiceMapDemo() {
+        ProtocolService.configProtocolServiceMaps(mapDic: ["MapExampleProtocol":"MapUnRuleClass"], nameSpace: nil)
         ProtocolService.configProtocolServiceMaps(mapDic: ["MapExampleProtocol":"MapUnRuleClass"], nameSpace: "SwiftExample")
-        
         let mapCacheService : AnyClass = ProtocolService.serviceCacheClass(aProtocol: MapExampleProtocol.self)
         mapCacheService.MapExampleFunction()
     }
