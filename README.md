@@ -38,6 +38,10 @@
 - Use Example【Swift /ObjC】
 
 
+### Q&A
+
+- 引入此中间件，如何**完全解耦**？
+
 ## 业界常用的组件通信方案
 
 ### URL Router
@@ -230,6 +234,11 @@ import ProtocolServiceKit.ProService
     }
 
 ```
+
+### Q&A
+
+- 建议组件之间通过明确的API接口交互，如果需要完全隔离（Example：A组件和B组件交互，不可以相互引用）
+	- 对于接口层可以单独为轻量级组件（A和B业务组件均存在对应附属的协议层组件A-Protocol，B-Protocol）即可
 
 Author
 ------
