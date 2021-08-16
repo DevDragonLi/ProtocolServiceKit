@@ -41,6 +41,7 @@
 ### Q&A
 
 - 引入此中间件，如何**完全解耦**？(见下文)
+- 使用此组件，是否可以代码提醒函数功能？
 
 ## 业界常用的组件通信方案
 
@@ -237,11 +238,25 @@ import ProtocolServiceKit.ProService
 
 ### Q&A
 
-- 建议组件之间通过明确的API接口交互，如果需要完全隔离（Example：A组件和B组件交互，不可以相互引用）
-	- 对于接口层可以单独为轻量级组件（A和B业务组件均存在对应附属的协议层组件A-Protocol，B-Protocol）即可
+####  建议组件之间通过明确的API接口交互，如果需要完全隔离（Example：A组件和B组件交互，不可以相互引用）
+- 对于接口层可以单独为轻量级组件（A和B业务组件均存在对应附属的协议层组件A-Protocol，B-Protocol）即可
 
-- 扩展：对于协议类可抽象出基类协议解决异常Case【视项目而定】
-	- 无实现的API最终兜底方案。
+####  使用此组件，是否可以代码提醒函数功能？
+
+> 一般不建议使用此版本 [ branch Function]
+
+- 支持对象函数调用提醒
+
+```
+// OC项目建议参考下行
+pod 'ProtocolServiceKit', :git => 'https://github.com/DevDragonLi/ProtocolServiceKit.git', :branch => 'tipFunction' # Default is ObjC
+// Swift项目建议参考下行
+pod 'ProtocolServiceKit/Swift', :git => 'https://github.com/DevDragonLi/ProtocolServiceKit.git', :branch => 'tipFunction' 
+
+```
+
+#### 扩展：对于协议类可抽象出基类协议解决异常Case【视项目而定】
+- 无实现的API最终兜底方案。
 
 Author
 ------
