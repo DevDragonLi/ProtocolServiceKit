@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   
   s.name             = 'ProtocolServiceKit'
   
-  s.version          = '2.2.2'
+  s.version          = '3.0.0'
   
   s.summary          = 'ProtocolServiceKit：The most efficient and concise iOS Component Middleware'
 
@@ -37,7 +37,8 @@ Pod::Spec.new do |s|
     ss.source_files = 'ProtocolServiceKit/**/*.{h,m}'
   
     ss.public_header_files = 'ProtocolServiceKit/ProtocolServiceKit.h',
-                             'ProtocolServiceKit/Core/*.h'
+                             'ProtocolServiceKit/Core/*.h',
+                             'ProtocolServiceKit/BaseShared/*.h'
   end
                           
 end

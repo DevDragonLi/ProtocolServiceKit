@@ -21,4 +21,13 @@
     NSLog(@"协议：%@,实际服务类名%@",NSStringFromProtocol(@protocol(LFLUnRuleProtocol)),NSStringFromClass([self class]));
 }
 
+- (NSString *)test {
+    NSLog(@"我是对象函数");
+    return @"test";
+}
+
++ (nonnull instancetype)shared {
+    return [super shared];
+}
+
 @end

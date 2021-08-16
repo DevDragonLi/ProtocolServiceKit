@@ -38,8 +38,7 @@
     [ruleService unRuleMethod];
     
     // 对象函数 ：代码提醒
-//    [[ruleService shared] arrayValue:@[].copy];
-//    [[ruleService shared] dicValue:@{}.copy];
+    [[ruleService shared] test];
     
 }
 

@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ProtocolServiceKit/ProShared.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /// Example：当前协议实现类 <=>并非LFLUnRuleService
 
-@interface LFLTestRuleIMP : NSObject
+@interface LFLTestRuleIMP : ProShared
 
 @end
 

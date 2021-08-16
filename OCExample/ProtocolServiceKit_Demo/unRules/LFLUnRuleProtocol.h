@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ProtocolServiceKit/ProSharedProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol LFLUnRuleProtocol <NSObject>
+@protocol LFLUnRuleProtocol <ProSharedProtocol>
 
 + (void)unRuleMethod;
+
+- (NSString *)test;
 
 @end
 
